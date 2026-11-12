@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模型总结 · 手连心与邻补</title>
+    <!-- Tailwind 现代排版 -->
+    <script src="./assets/tailwind.js"></script>
+    <!-- KaTeX 极速公式渲染 -->
+    <link rel="stylesheet" href="./assets/katex/katex.min.css">
+    <script src="./assets/katex/katex.min.js"></script>
+    <script src="./assets/katex/contrib/auto-render.min.js"></script>
+    <style>
+        body { background-color: #f8fafc; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .katex { font-size: 1.02em; }
+    </style>
+<style id="katex-fallback">.katex-mathml{position:absolute!important;clip:rect(1px,1px,1px,1px)!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;border:0!important}</style>
+<link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="min-h-screen lg:h-screen text-slate-800 lg:overflow-hidden course-detail-page">
+
+    <div class="flex flex-col gap-2 p-3 min-h-screen lg:h-screen lg:overflow-hidden"><div id="topbar" class="w-full flex flex-wrap items-center gap-x-4 gap-y-1 bg-white rounded-xl border border-slate-200 px-4 py-2 shadow-sm text-sm"></div><div class="flex flex-col lg:flex-row gap-3 flex-1 min-h-0 lg:overflow-hidden">
+
+        <!-- ===== 左栏：题目 + 交互控制台 ===== -->
+        <aside class="w-full lg:w-[340px] flex-shrink-0 flex flex-col gap-3 lg:h-full lg:overflow-hidden">
+            <!-- 题目 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-300 p-5 flex-shrink-0 lg:max-h-[58%] lg:overflow-y-auto">
+                
+                <div id="prob-body" class="prose text-slate-600 leading-relaxed space-y-3 text-sm md:text-base"></div>
+            </div>
+            <!-- 控制台 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-300 p-5 lg:flex-1 lg:min-h-0 lg:overflow-y-auto">
+                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-4">
+                    <span class="w-2.5 h-2.5 bg-blue-500 rounded-full"></span>
+                    <span id="console-title">动态控制台</span>
+                </h3>
+                <div class="space-y-6">
+                    <!-- 参数滑块（无参数题型自动隐藏） -->
+                    <div id="param-block" class="hidden">
+                        <div class="flex justify-between items-center mb-2">
+                            <label id="param-label" class="text-sm font-semibold text-slate-600"></label>
+                            <span id="param-val" class="bg-blue-50 text-blue-600 px-2.5 py-1 rounded-md text-xs font-mono font-bold border border-blue-100"></span>
+                        </div>
+                        <input type="range" id="param-slider" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 focus:outline-none">
+                        <div id="param-ticks" class="flex justify-between text-[11px] text-slate-400 mt-1.5 font-mono"></div>
+                    </div>
+                    <!-- 实时数值监控 -->
+                    <!-- 辅助线开关（有 auxToggle 时出现） -->
+                    <label id="aux-block" class="hidden flex items-center gap-2 text-sm text-slate-600 select-none cursor-pointer">
+                        <input type="checkbox" id="aux-chk" class="w-4 h-4 accent-indigo-600 cursor-pointer">
+                        <span id="aux-label">显示辅助线</span>
+                    </label>
+                    <div id="readouts" class="bg-slate-50 border border-slate-200/60 rounded-xl p-4 space-y-3 text-xs md:text-sm font-mono text-slate-700"></div>
+                </div>
+                <!-- 理论范围指示器（区间/最值题才出现） -->
+                <div id="rangebar-block" class="hidden mt-6 border-t border-slate-100 pt-4">
+                    <div class="flex justify-between text-xs text-slate-500 mb-1">
+                        <span id="rangebar-cur">当前位置:</span>
+                        <span>理论范围: <span id="rangebar-range" class="font-semibold"></span></span>
+                    </div>
+                    <div class="relative w-full h-4 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+                        <div class="absolute top-0 bottom-0 bg-gradient-to-r from-red-200 via-amber-200 to-emerald-200 rounded-full" style="left:6%; right:6%"></div>
+                        <div id="rangebar-ptr" class="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-teal-600 rounded-full shadow-md border-2 border-white transition-all duration-75" style="left:50%"></div>
+                    </div>
+                </div>
+                <!-- 定值指示器（定值题才出现） -->
+                <div id="constant-block" class="hidden mt-6 border-t border-slate-100 pt-4">
+                    <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 text-sm">
+                        <span class="text-emerald-600">💡</span>
+                        <span class="text-slate-700">拖动滑块，下方数值恒为定值</span>
+                        <span id="constant-val" class="ml-auto font-bold text-emerald-700"></span>
+                    </div>
+                </div>
+                <!-- 参数轴·答案区间（离心率范围等"形状参数"题才出现） -->
+                <div id="answerband-block" class="hidden mt-6 border-t border-slate-100 pt-4">
+                    <div class="flex justify-between text-xs text-slate-500 mb-1">
+                        <span id="answerband-cur">当前值:</span>
+                        <span>答案区间: <span id="answerband-label" class="font-semibold text-emerald-700"></span></span>
+                    </div>
+                    <div class="relative w-full h-4 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+                        <div id="answerband-fill" class="absolute top-0 bottom-0 bg-emerald-200/80" style="left:0%; right:0%"></div>
+                        <div id="answerband-ptr" class="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-indigo-600 rounded-full shadow-md border-2 border-white transition-all duration-75" style="left:50%"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ===== 中栏：分步解析 ===== -->
+        <section id="solution-panel" class="w-full lg:w-[360px] flex-shrink-0 lg:overflow-y-auto bg-white rounded-2xl shadow-sm border border-slate-300 p-5 space-y-5 transition-[width] duration-300">
+            <div id="sol-header" class="flex items-center justify-between gap-2">
+                <h3 id="sol-title" class="text-base font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-indigo-500 rounded-full"></span>
+                    <span id="sol-title-text">详细解析</span>
+                </h3>
+                <button id="toggle-solution" type="button" title="收起解析" class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg border border-slate-300 bg-slate-50 text-slate-500 shadow-sm hover:bg-indigo-50 hover:border-indigo-300 hover:text-indigo-600 transition-colors cursor-pointer">
+                    <svg id="sol-chevron" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <span id="sol-vlabel" class="hidden font-bold text-slate-700 text-sm tracking-widest [writing-mode:vertical-rl]">详细解析</span>
+            </div>
+            <div id="solution-body" class="space-y-5"></div>
+        </section>
+
+        <!-- ===== 右栏：动态几何画板 ===== -->
+        <main class="w-full lg:flex-1 min-w-0 bg-white rounded-2xl shadow-sm border border-slate-300 p-5 flex flex-col lg:overflow-hidden">
+            <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    数形结合·动态交互几何画板
+                </h3>
+                <button onclick="resetPlot()" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition-colors">重置</button>
+            </div>
+            <div class="relative flex-grow min-h-[360px] lg:min-h-0 bg-slate-900 rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
+                <canvas id="geometry-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                <canvas id="draw-canvas" class="absolute inset-0 w-full h-full" style="pointer-events:none; touch-action:none;"></canvas>
+
+                <!-- 画笔工具栏 -->
+                <div class="absolute top-4 right-4 z-10 flex items-center gap-1 bg-slate-900/85 backdrop-blur-md p-1.5 rounded-xl border border-slate-700 shadow-lg">
+                    <button id="pen-btn" type="button" title="画笔" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors cursor-pointer">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+                    </button>
+                    <button id="eraser-btn" type="button" title="橡皮擦" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors cursor-pointer">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 21-4.3-4.3a1.7 1.7 0 0 1 0-2.4l9.6-9.6a1.7 1.7 0 0 1 2.4 0l5.6 5.6a1.7 1.7 0 0 1 0 2.4L13 21"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 21H7M5 11l8 8"/></svg>
+                    </button>
+                    <span class="w-px h-5 bg-slate-700 mx-0.5"></span>
+                    <div class="flex items-center gap-1">
+                        <button type="button" class="draw-swatch w-5 h-5 rounded-full cursor-pointer ring-2 ring-white" data-color="#ffffff" style="background:#ffffff" title="白色"></button>
+                        <button type="button" class="draw-swatch w-5 h-5 rounded-full cursor-pointer ring-1 ring-slate-600" data-color="#2dd4bf" style="background:#2dd4bf" title="青色"></button>
+                        <button type="button" class="draw-swatch w-5 h-5 rounded-full cursor-pointer ring-1 ring-slate-600" data-color="#fbbf24" style="background:#fbbf24" title="琥珀"></button>
+                        <button type="button" class="draw-swatch w-5 h-5 rounded-full cursor-pointer ring-1 ring-slate-600" data-color="#fb7185" style="background:#fb7185" title="玫红"></button>
+                    </div>
+                    <span class="w-px h-5 bg-slate-700 mx-0.5"></span>
+                    <input id="pen-size" type="range" min="1" max="14" value="3" title="画笔粗细" class="w-14 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white">
+                    <span class="w-px h-5 bg-slate-700 mx-0.5"></span>
+                    <button id="undo-btn" type="button" title="撤销" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-colors cursor-pointer">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14 4 9l5-5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg>
+                    </button>
+                    <button id="clear-draw-btn" type="button" title="清除涂鸦" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-300 hover:bg-rose-600 hover:text-white transition-colors cursor-pointer">
+                        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </button>
+                </div>
+
+                <!-- 图例（由数据生成） -->
+                <div id="legend" class="absolute bottom-4 left-4 pointer-events-none bg-slate-900/80 backdrop-blur-md text-[11px] text-slate-300 p-3 rounded-lg border border-slate-700 space-y-1"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 数据岛：由 generate.py 注入 -->
+    </div>
+<script id="lesson-data" type="application/json">{"lesson":{"language":"zh-CN","title":"模型总结 · 手连心与邻补","problem":"<p style=\"font-size:13px;color:#64748b\"><a href=\"index.html\">&#8592; 返回课件目录</a>&nbsp;|&nbsp; <a href=\"05-引例3-阜新.html\">&#8592; 引例 3</a></p><p class='font-medium text-slate-800'>【模型总结与拓展】</p><p>手连心模型的三条识别特征：</p><p>① <b>共点</b>：两个图形绕同一个「心」（正方形中心、斜边中点、圆心）；<br>② <b>邻边相等</b>：$BE=CE$（或 $OA=OB$），才转得过去；<br>③ <b>一个直角（或对角互补）</b>：保证转过去后两条线段能拼成一条直线。</p><p>本节还有一个不常被提到的结论：连接 $MN$，则 $$AM^2+CN^2=MN^2.$$</p><div class='my-3'><figure class='text-center my-2'><img src='data:image/png;base64,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' alt='手连心模型：正方形ABCD与旋转的正方形EFGH，EM与EN相等' style=\"max-width:100%;max-height:190px;height:auto;display:inline-block;border:1px solid #e2e8f0;border-radius:8px;padding:4px;background:#fff\"><figcaption class='text-[11px] text-slate-400 mt-1'>回到最初的图形：连上 $MN$，又多一条勾股关系</figcaption></figure></div><p class='text-slate-500 text-sm'>拖动滑块旋转小正方形：$AM^2+CN^2$ 与 $MN^2$ 的读数始终相等。</p>","answerLabel":"","answer":""},"steps":[{"title":"$AM^2+CN^2=MN^2$ 是怎么来的","content":"<p>由 $\\triangle EMB\\cong\\triangle ENC$ 得 $MB=NC$，且 $\\angle MBN=90^\\circ$。把 $CN$ 沿 $BC$ 平移，等价于在直角 $\\angle MBN$ 里做了一次「旋转搬运」：$CN$ 与 $MB$ 互为旋转 $90^\\circ$ 的像。</p><p>于是 $AM^2+CN^2$ 可以拼成一条直线段的平方，恰好等于 $MN^2$ —— <b>本质是「直角三角形的斜边」被拆成了两条直角边</b>。</p>"},{"title":"与半角模型的对照","content":"<p>· 半角模型：$\\angle EAF=\\frac12\\angle BAD$，结论是<b>线段的和差</b>（$EF=BE+DF$）；<br>· 邻补四边形：一组对角互补，结论是<b>线段的比例</b>（$CB+CD=2\\sin\\frac{\\angle BAD}{2}\\cdot CA$）；<br>· 手连心：共点 + 直角，结论是<b>线段相等</b>（$EM=EN$）与<b>勾股关系</b>（$AM^2+CN^2=MN^2$）。</p><p>三者共用同一个底层的动作：<b>绕某点旋转一个角，造出全等三角形</b>。</p>"},{"title":"遇到新题怎么找「心」","content":"<p>三个线索，按顺序试：</p><p>1. 图中有没有<b>正方形中心 / 斜边中点 / 圆心 / 角平分线上的点</b>？</p><p>2. 有没有<b>一对相等且共端点的线段</b>（$BE=CE$、$OA=OB$、$AB=AD$）？</p><p>3. 有没有<b>直角或互补的一对角</b>？</p><p>三条都出现，就大胆把某个三角形绕「心」转过去；只出现两条，就用「邻补四边形」的思路补第三条。</p>"},{"title":"一条主线收束整章","content":"<p>对称与旋转这一章，从「对称的性质」到「矩形的折叠」，再到「手拉手」「三垂直」「半角」「手连心」，其实都在做同一件事：<b>把分散的线段搬到一起</b>。</p><p>折叠是翻转过去，手拉手是旋转过去，三垂直是补成矩形，半角是转出另一半角，手连心是转到对称位置 —— 认出「往哪儿搬」，题就解了一半。</p>"}],"board":{"consoleTitle":"旋转 + 连 MN · 控制台","view":{"xRange":[-3.3,7.6],"yRange":[-1.8,7.6]},"points":{"A":{"xy":[0,6],"color":"fixed","label":"A","emphasis":true},"B":{"xy":[0,0],"color":"ptA","label":"B","emphasis":true},"C":{"xy":[6,0],"color":"ptB","label":"C","emphasis":true},"D":{"xy":[6,6],"color":"ptA","label":"D","emphasis":true},"E":{"xy":[3,3],"color":"fixed","label":"E","emphasis":true},"F":{"xy":["3+4*cos(t*PI/180)","3+4*sin(t*PI/180)"],"color":"line","label":"F"},"G":{"xy":["3+4*(cos(t*PI/180)-sin(t*PI/180))","3+4*(sin(t*PI/180)+cos(t*PI/180))"],"color":"line","label":"G"},"H":{"xy":["3-4*sin(t*PI/180)","3+4*cos(t*PI/180)"],"color":"line","label":"H"}},"param":{"name":"t","label":"小正方形的旋转角 $\\theta$","min":140,"max":172,"step":1,"value":152,"standard":152,"unit":"°","ticks":["140°","150°","162°","172°"]},"derived":[{"type":"segment","name":"ab","a":"A","b":"B","color":"aux"},{"type":"segment","name":"bc","a":"B","b":"C","color":"aux"},{"type":"segment","name":"cd","a":"C","b":"D","color":"aux"},{"type":"segment","name":"da","a":"D","b":"A","color":"aux"},{"type":"segment","name":"ef","a":"E","b":"F","color":"line"},{"type":"segment","name":"fg","a":"F","b":"G","color":"line"},{"type":"segment","name":"gh","a":"G","b":"H","color":"line"},{"type":"segment","name":"he","a":"H","b":"E","color":"line"},{"type":"intersect_line_line","name":"M","a":"ef","b":"ab","color":"ptA","label":"M","emphasis":true},{"type":"intersect_line_line","name":"N","a":"he","b":"bc","color":"ptB","label":"N","emphasis":true},{"type":"segment","name":"mn","a":"M","b":"N","color":"curve"},{"type":"segment","name":"am","a":"A","b":"M","color":"line2"},{"type":"segment","name":"cn","a":"C","b":"N","color":"line2"}],"readouts":[{"id":"lhs","label":"$AM^2+CN^2$","type":"expr","expr":"hypot(M_x-A_x,M_y-A_y)^2+hypot(N_x-C_x,N_y-C_y)^2","digits":2,"highlight":true},{"id":"rhs","label":"$MN^2$","type":"expr","expr":"hypot(M_x-N_x,M_y-N_y)^2","digits":2,"highlight":true},{"id":"diff","label":"两者之差","type":"expr","expr":"hypot(M_x-A_x,M_y-A_y)^2+hypot(N_x-C_x,N_y-C_y)^2-hypot(M_x-N_x,M_y-N_y)^2","digits":3}],"legend":[{"color":"line","text":"小正方形 $EFGH$"},{"color":"curve","text":"$MN$"},{"color":"line2","text":"$AM$、$CN$"},{"color":"aux","text":"正方形 $ABCD$"}]}}</script>
+
+    <script>
+    "use strict";
+    const DATA = JSON.parse(document.getElementById('lesson-data').textContent);
+    const BOARD = DATA.board || {};
+    const UI = Object.assign({
+        consoleTitle: "动态控制台", solutionTitle: "详细解析",
+        collapse: "收起解析", expand: "展开解析", current: "当前位置:", theoRange: "理论范围:"
+    }, (DATA.lesson && DATA.lesson.ui) || {});
+
+    // ===== 语义色板（数据里 color 可填语义名或直接 hex）=====
+    const COLORS = {
+        curve:'#facc15', curve2:'#f472b6', line:'#2dd4bf', line2:'#38bdf8',
+        aux:'#94a3b8', asymptote:'#64748b', directrix:'#a3a3a3',
+        ptA:'#f87171', ptB:'#60a5fa', point:'#e2e8f0', given:'#a78bfa',
+        fixed:'#34d399', focus:'#e2e8f0', vecA:'#f87171', vecB:'#60a5fa',
+        vec:'#fbbf24', locus:'#38bdf8', area:'rgba(45,212,191,0.16)'
+    };
+    const col = c => (c && COLORS[c]) ? COLORS[c] : (c || '#e2e8f0');
+
+    // ===== 数值工具 =====
+    const EPS = 1e-9;
+    function fmt(x, d=2){
+        if (x === null || x === undefined || !isFinite(x)) return '—';
+        let s = x.toFixed(d);
+        if (s === '-' + (0).toFixed(d)) s = (0).toFixed(d);   // 去掉 -0.00
+        return s;
+    }
+    const toRad = deg => deg*Math.PI/180;
+
+    // ===== 安全表达式求值（参数化曲线/点/读数：随 @param 实时重算）=====
+    // 表达式由 generate.py 生成（可信本地内容）；可用 @param 名(或别名 p)、+ - * / ^、括号、
+    // 及 sqrt/sin/cos/abs/pow/min/max/PI 等白名单函数。
+    const MATHENV = {sqrt:Math.sqrt,cbrt:Math.cbrt,abs:Math.abs,sin:Math.sin,cos:Math.cos,tan:Math.tan,
+        asin:Math.asin,acos:Math.acos,atan:Math.atan,atan2:Math.atan2,exp:Math.exp,log:Math.log,
+        pow:Math.pow,min:Math.min,max:Math.max,sign:Math.sign,floor:Math.floor,ceil:Math.ceil,hypot:Math.hypot,PI:Math.PI};
+    const _exprCache={};
+    function evalExpr(expr, env){
+        if(typeof expr!=='string') return expr;                  // 已是数值
+        const scope=Object.assign({}, MATHENV, env);
+        const names=Object.keys(scope);
+        const key=expr+'|'+names.join(',');
+        let fn=_exprCache[key];
+        if(!fn){ try{ fn=Function(...names,'"use strict";return ('+expr.replace(/\^/g,'**')+');'); }
+                 catch(e){ fn=()=>NaN; } _exprCache[key]=fn; }
+        try{ const v=fn(...names.map(n=>scope[n])); return (typeof v==='number')?v:NaN; }catch(e){ return NaN; }
+    }
+    const resolveVal=(v,env)=> (typeof v==='string')? evalExpr(v,env) : v;
+    function resolveConic(cn, env){            // 把曲线各数值字段(可为表达式)按 env 解析为数值
+        const r=Object.assign({}, cn);
+        ['a','b','c','r','p'].forEach(k=>{ if(k in r) r[k]=resolveVal(r[k],env); });
+        if(Array.isArray(r.center)) r.center=r.center.map(z=>resolveVal(z,env));
+        return r;
+    }
+
+    // ===================== 几何基元 =====================
+    // 圆锥曲线 → 隐式系数 A x² + C y² + D x + E y + F = 0（均轴对齐，无 xy 项）
+    function conicImplicit(cn){
+        const cx = (cn.center && cn.center[0]) || 0, cy = (cn.center && cn.center[1]) || 0;
+        if (cn.kind === 'circle'){
+            const r = cn.r;
+            return {A:1, C:1, D:-2*cx, E:-2*cy, F:cx*cx+cy*cy-r*r};
+        }
+        if (cn.kind === 'ellipse'){
+            const a=cn.a, b=cn.b;
+            return {A:1/(a*a), C:1/(b*b), D:-2*cx/(a*a), E:-2*cy/(b*b), F:cx*cx/(a*a)+cy*cy/(b*b)-1};
+        }
+        if (cn.kind === 'hyperbola'){
+            const a=cn.a, b=cn.b;            // a=实半轴, b=虚半轴
+            if ((cn.orient||'x') === 'x'){   // (x-cx)²/a² - (y-cy)²/b² = 1
+                return {A:1/(a*a), C:-1/(b*b), D:-2*cx/(a*a), E:2*cy/(b*b), F:cx*cx/(a*a)-cy*cy/(b*b)-1};
+            } else {                         // (y-cy)²/a² - (x-cx)²/b² = 1
+                return {A:-1/(b*b), C:1/(a*a), D:2*cx/(b*b), E:-2*cy/(a*a), F:-cx*cx/(b*b)+cy*cy/(a*a)-1};
+            }
+        }
+        if (cn.kind === 'parabola'){
+            // axis x: (y-cy)² = 2p(x-cx);  axis y: (x-cx)² = 2p(y-cy)
+            const p = cn.p;
+            if ((cn.axis||'x') === 'x') return {A:0, C:1, D:-2*p, E:-2*cy, F:cy*cy+2*p*cx};
+            else                       return {A:1, C:0, D:-2*cx, E:-2*p, F:cx*cx+2*p*cy};
+        }
+        return {A:0,C:0,D:0,E:0,F:0};
+    }
+
+    // 采样圆锥曲线为若干条折线（用于绘制）；考虑视窗，双曲线分两支
+    function sampleConic(cn, view){
+        const cx=(cn.center&&cn.center[0])||0, cy=(cn.center&&cn.center[1])||0;
+        const N=240;
+        if (cn.kind==='circle'){
+            const pts=[]; for(let i=0;i<=N;i++){const t=2*Math.PI*i/N; pts.push([cx+cn.r*Math.cos(t), cy+cn.r*Math.sin(t)]);} return [pts];
+        }
+        if (cn.kind==='ellipse'){
+            const pts=[]; for(let i=0;i<=N;i++){const t=2*Math.PI*i/N; pts.push([cx+cn.a*Math.cos(t), cy+cn.b*Math.sin(t)]);} return [pts];
+        }
+        if (cn.kind==='parabola'){
+            const p=cn.p, pts=[];
+            if ((cn.axis||'x')==='x'){
+                for(let i=0;i<=N;i++){const y=view.yRange[0]+(view.yRange[1]-view.yRange[0])*i/N; pts.push([cx+(y-cy)*(y-cy)/(2*p), y]);}
+            } else {
+                for(let i=0;i<=N;i++){const x=view.xRange[0]+(view.xRange[1]-view.xRange[0])*i/N; pts.push([x, cy+(x-cx)*(x-cx)/(2*p)]);}
+            }
+            return [pts];
+        }
+        if (cn.kind==='hyperbola'){
+            const a=cn.a,b=cn.b; const branches=[];
+            // 估算需要的参数范围 smax，使曲线覆盖视窗
+            const spanX=Math.max(Math.abs(view.xRange[0]-cx),Math.abs(view.xRange[1]-cx));
+            const spanY=Math.max(Math.abs(view.yRange[0]-cy),Math.abs(view.yRange[1]-cy));
+            let smax;
+            if ((cn.orient||'x')==='x') smax=Math.max(Math.acosh(Math.max(spanX/a,1.0001)), Math.asinh(spanY/b));
+            else                         smax=Math.max(Math.acosh(Math.max(spanY/a,1.0001)), Math.asinh(spanX/b));
+            smax=Math.min(Math.max(smax,1.2),4.5);
+            for(const sgn of [1,-1]){
+                const pts=[]; for(let i=0;i<=N;i++){const s=-smax+2*smax*i/N;
+                    if ((cn.orient||'x')==='x') pts.push([cx+sgn*a*Math.cosh(s), cy+b*Math.sinh(s)]);
+                    else                         pts.push([cx+b*Math.sinh(s), cy+sgn*a*Math.cosh(s)]);
+                }
+                branches.push(pts);
+            }
+            return branches;
+        }
+        return [];
+    }
+
+    // 双曲线渐近线（两条），返回 line 对象数组
+    function hyperbolaAsymptotes(cn){
+        const cx=(cn.center&&cn.center[0])||0, cy=(cn.center&&cn.center[1])||0, a=cn.a,b=cn.b;
+        const slope=((cn.orient||'x')==='x') ? b/a : a/b;
+        return [ {p0:[cx,cy],dir:[1, slope]}, {p0:[cx,cy],dir:[1,-slope]} ];
+    }
+
+    // ---- 直线表示：{p0:[x,y], dir:[dx,dy]} ----
+    const lineFromAngle = (p, deg) => ({p0:p.slice(), dir:[Math.cos(toRad(deg)), Math.sin(toRad(deg))]});
+    const lineFromSlope = (p, k) => ({p0:p.slice(), dir:[1, k]});
+    const lineXMyC = (m, c) => ({p0:[c,0], dir:[m,1]});            // x = m y + c
+    const lineThroughPoints = (a, b) => ({p0:a.slice(), dir:[b[0]-a[0], b[1]-a[1]]});
+    const lineThroughDir = (p, d) => ({p0:p.slice(), dir:d.slice()});
+
+    // 直线 → ax+by+c=0
+    function lineABC(L){ const a=L.dir[1], b=-L.dir[0]; const c=-(a*L.p0[0]+b*L.p0[1]); return {a,b,c}; }
+
+    // 直线裁剪到视窗，返回 [[x,y],[x,y]] 或 null
+    function clipLine(L, view){
+        const cand=[]; const [dx,dy]=L.dir, [x0,y0]=L.p0;
+        const push=t=>{const x=x0+t*dx,y=y0+t*dy;
+            if(x>=view.xRange[0]-EPS&&x<=view.xRange[1]+EPS&&y>=view.yRange[0]-EPS&&y<=view.yRange[1]+EPS) cand.push([t,x,y]);};
+        if(Math.abs(dx)>EPS){push((view.xRange[0]-x0)/dx);push((view.xRange[1]-x0)/dx);}
+        if(Math.abs(dy)>EPS){push((view.yRange[0]-y0)/dy);push((view.yRange[1]-y0)/dy);}
+        if(cand.length<2) return null;
+        cand.sort((p,q)=>p[0]-q[0]);
+        const A=cand[0], B=cand[cand.length-1];
+        return [[A[1],A[2]],[B[1],B[2]]];
+    }
+
+    // 直线 ∩ 圆锥曲线：代入参数式得 t 二次方程，返回按 t 升序的交点（0/1/2 个）
+    function intersectLineConic(L, cn){
+        const {A,C,D,E,F}=conicImplicit(cn); const [x0,y0]=L.p0, [dx,dy]=L.dir;
+        const qa = A*dx*dx + C*dy*dy;
+        const qb = 2*A*x0*dx + 2*C*y0*dy + D*dx + E*dy;
+        const qc = A*x0*x0 + C*y0*y0 + D*x0 + E*y0 + F;
+        const roots=[];
+        if (Math.abs(qa)<EPS){
+            if (Math.abs(qb)>EPS) roots.push(-qc/qb);
+        } else {
+            const disc=qb*qb-4*qa*qc;
+            if (disc>=-1e-7){ const sd=Math.sqrt(Math.max(disc,0));
+                roots.push((-qb-sd)/(2*qa)); roots.push((-qb+sd)/(2*qa)); }
+        }
+        roots.sort((u,v)=>u-v);
+        return roots.map(t=>[x0+t*dx, y0+t*dy]);
+    }
+
+    function intersectLineLine(L1,L2){
+        const e1=lineABC(L1), e2=lineABC(L2);
+        const det=e1.a*e2.b-e2.a*e1.b;
+        if(Math.abs(det)<EPS) return null;
+        return [(-e1.c*e2.b+e2.c*e1.b)/det, (-e1.a*e2.c+e2.a*e1.c)/det];
+    }
+
+    const midpoint=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];
+    function footPerp(P,L){ const {a,b,c}=lineABC(L); const d=(a*P[0]+b*P[1]+c)/(a*a+b*b); return [P[0]-a*d, P[1]-b*d]; }
+    function reflectPt(P,L){ const f=footPerp(P,L); return [2*f[0]-P[0], 2*f[1]-P[1]]; }
+    // 圆锥曲线在其上一点的切线（隐式梯度法）
+    function tangentAt(cn,P){ const {A,C,D,E}=conicImplicit(cn); const gx=2*A*P[0]+D, gy=2*C*P[1]+E; return {p0:P.slice(), dir:[-gy,gx]}; }
+    // 圆锥曲线参数点（t：椭圆/圆为角度°；抛物线为自由坐标；双曲线为参数 s）
+    function pointOnConic(cn,t){
+        const cx=(cn.center&&cn.center[0])||0, cy=(cn.center&&cn.center[1])||0;
+        if(cn.kind==='circle') return [cx+cn.r*Math.cos(toRad(t)), cy+cn.r*Math.sin(toRad(t))];
+        if(cn.kind==='ellipse') return [cx+cn.a*Math.cos(toRad(t)), cy+cn.b*Math.sin(toRad(t))];
+        if(cn.kind==='parabola'){ const p=cn.p; return (cn.axis||'x')==='x' ? [cx+t*t/(2*p), cy+t] : [cx+t, cy+t*t/(2*p)]; }
+        if(cn.kind==='hyperbola'){ const a=cn.a,b=cn.b; return (cn.orient||'x')==='x' ? [cx+a*Math.cosh(t), cy+b*Math.sinh(t)] : [cx+b*Math.sinh(t), cy+a*Math.cosh(t)]; }
+        return [cx,cy];
+    }
+
+    // ===================== 场景构建（derived 实时求解）=====================
+    const conicDefs = {}; (BOARD.conics||[]).forEach(c=>conicDefs[c.name]=c);
+    // 参数名作为表达式变量（须是合法标识符，如 e / t / k；θ 等非标识符则只用别名 p）
+    const PARAM_NAME = (BOARD.param && /^[A-Za-z_$][\w$]*$/.test(BOARD.param.name||'')) ? BOARD.param.name : null;
+
+    function normPoints(env){   // 静态点 → {xy,color,label,emphasis,hidden}；坐标可为表达式
+        const reg={};
+        const src=BOARD.points||{};
+        const xyOf = v => [resolveVal(v[0],env), resolveVal(v[1],env)];
+        for(const name in src){ const v=src[name];
+            if(Array.isArray(v)) reg[name]={xy:xyOf(v), color:'point', label:name, emphasis:false, hidden:false};
+            else reg[name]={xy:xyOf(v.xy), color:v.color||'point', label:(v.label!==undefined?v.label:name), emphasis:!!v.emphasis, hidden:!!v.hidden};
+        }
+        return reg;
+    }
+
+    function buildScene(pval){
+        const env={ p: pval }; if(PARAM_NAME) env[PARAM_NAME]=pval;     // 滑块值 → 表达式变量
+        (BOARD.scalars||[]).forEach(s=>{ env[s.name]=evalExpr(s.expr, env); });  // 第一遍：只依赖参数的标量
+        const conics={}; (BOARD.conics||[]).forEach(c=>{ conics[c.name]=resolveConic(c, env); }); // 本帧数值曲线
+        const pts=normPoints(env);          // name -> {xy,...}
+        // 点坐标入 env，再求一遍标量：允许标量引用 P_x/P_y（含表达式坐标）
+        for(const n in pts){ const pp=pts[n].xy; if(pp){ if(isFinite(pp[0])) env[n+'_x']=pp[0]; if(isFinite(pp[1])) env[n+'_y']=pp[1]; } }
+        (BOARD.scalars||[]).forEach(s=>{ env[s.name]=evalExpr(s.expr, env); });
+        let lines={}, vectors={}, segments={}, polys=[];
+        const P = n => (Array.isArray(n) ? n : (pts[n] ? pts[n].xy : null));
+        const resolveNum = v => (v==='@param') ? pval : (typeof v==='string'? evalExpr(v, env) : v);
+        const addPt = (n,xy,o={}) => { pts[n]=Object.assign({xy:xy?xy.slice():[NaN,NaN], color:'point', label:n, emphasis:false, hidden:false}, o); };
+
+        const buildDerived = () => { (BOARD.derived||[]).forEach(d=>{
+            switch(d.type){
+                case 'line_through_angle': lines[d.name]={L:lineFromAngle(P(d.point), resolveNum(d.angle)), color:d.color||'line', label:d.label, dashed:d.dashed}; break;
+                case 'line_through_slope': lines[d.name]={L:lineFromSlope(P(d.point), resolveNum(d.slope)), color:d.color||'line', label:d.label, dashed:d.dashed}; break;
+                case 'line_x_eq_my_c':     lines[d.name]={L:lineXMyC(resolveNum(d.m), d.c!==undefined?d.c:0), color:d.color||'line', label:d.label, dashed:d.dashed}; break;
+                case 'line_through_points': lines[d.name]={L:lineThroughPoints(P(d.a),P(d.b)), color:d.color||'line', label:d.label, dashed:d.dashed, toggle:!!d.toggle}; break;
+                case 'line_through_point_dir': lines[d.name]={L:lineThroughDir(P(d.point), d.dir), color:d.color||'line', label:d.label, dashed:d.dashed}; break;
+                case 'point_on_conic': addPt(d.name, pointOnConic(conics[d.conic], resolveNum(d.t)), {color:d.color||'point', label:d.label||d.name, emphasis:d.emphasis}); break;
+                case 'intersect_line_conic': {
+                    const ip=intersectLineConic(lines[d.line].L, conics[d.conic]);
+                    const names=d.name, cols=d.colors||['ptA','ptB'];
+                    names.forEach((nm,i)=>addPt(nm, ip[i]||null, {color:cols[i]||'point', label:(d.labels&&d.labels[i])||nm}));
+                    break; }
+                case 'intersect_line_line': { const _ln=n=>lines[n]?lines[n].L:(segments[n]?lineThroughPoints(segments[n].a,segments[n].b):null); const _A=_ln(d.a), _B=_ln(d.b); addPt(d.name, (_A&&_B)?intersectLineLine(_A,_B):null, {color:d.color||'point', label:d.label||d.name, hidden:!!d.hidden, toggle:!!d.toggle}); break; }
+                case 'midpoint': addPt(d.name, midpoint(P(d.a),P(d.b)), {color:d.color||'point', label:d.label||d.name, emphasis:d.emphasis, hidden:!!d.hidden, toggle:!!d.toggle}); break;
+                case 'foot_perp': { const _L=lines[d.line]?lines[d.line].L:(segments[d.line]?lineThroughPoints(segments[d.line].a,segments[d.line].b):null); addPt(d.name, _L?footPerp(P(d.point), _L):null, {color:d.color||'point', label:d.label||d.name}); break; }
+                case 'reflect': { const _L=lines[d.line]?lines[d.line].L:(segments[d.line]?lineThroughPoints(segments[d.line].a,segments[d.line].b):null); addPt(d.name, _L?reflectPt(P(d.point), _L):null, {color:d.color||'point', label:d.label||d.name}); break; }
+                case 'point_reflect': { const ctr=d.center?(Array.isArray(d.center)?d.center:P(d.center)):[0,0]; const o=P(d.of); addPt(d.name,[2*ctr[0]-o[0],2*ctr[1]-o[1]],{color:d.color||'point',label:d.label||d.name,emphasis:d.emphasis,hidden:!!d.hidden,toggle:!!d.toggle}); break; }
+                case 'tangent_at': lines[d.name]={L:tangentAt(conics[d.conic], P(d.point)), color:d.color||'line', label:d.label, dashed:d.dashed}; break;
+                case 'vector': vectors[d.name]={from:P(d.from), to:P(d.to), color:d.color||'vec', label:d.label}; break;
+                case 'segment': segments[d.name]={a:P(d.a), b:P(d.b), color:d.color||'aux', dashed:d.dashed, label:d.label, hidden:!!d.hidden, toggle:!!d.toggle}; break;
+                case 'polyline': polys.push({pts:(d.pts||[]).map(P), color:d.color||'rgba(0,0,0,0)', stroke:d.stroke||'aux', open:true, hidden:!!d.hidden}); break;
+                case 'polygon': polys.push({pts:(d.pts||[]).map(P), color:d.color||'area', stroke:d.stroke}); break;
+            }
+        }); };
+        buildDerived();
+        // 二次回填：静态点坐标若引用了 derived 点（如 P_x / P_y），此时才有值 → 重新求值
+        (function(){
+            const penv=Object.assign({}, env);
+            for(const n in pts){ const pp=pts[n].xy; if(pp&&isFinite(pp[0])&&isFinite(pp[1])){ penv[n+'_x']=pp[0]; penv[n+'_y']=pp[1]; } }
+            const src=BOARD.points||{};
+            for(const n in src){
+                const cur=pts[n]; if(!cur) continue;
+                if(isFinite(cur.xy[0])&&isFinite(cur.xy[1])) continue;   // 已有效，跳过
+                const v=src[n]; const xy=(Array.isArray(v)?v:v.xy);
+                if(!Array.isArray(xy)) continue;
+                const nx=evalExpr(xy[0], penv), ny=evalExpr(xy[1], penv);
+                if(isFinite(nx)&&isFinite(ny)){ cur.xy[0]=nx; cur.xy[1]=ny; }
+            }
+        })();
+        // 重建（第二遍）：清空几何后重跑 derived，使「引用后定义的点」与「回填后的静态点」都生效
+        lines={}; vectors={}; segments={}; polys=[];
+        buildDerived();
+
+        // 辅助线开关：toggle 元素默认隐藏，勾选后显示
+        var auxOn = (typeof window.__AUX_ON!=='undefined') ? window.__AUX_ON
+                    : (BOARD.auxToggle ? BOARD.auxToggle.default!==false : true);
+        if(!auxOn){
+            for(const k in lines){ if(lines[k].toggle) delete lines[k]; }
+            for(const k in segments){ if(segments[k].toggle) delete segments[k]; }
+            for(const k in vectors){ if(vectors[k].toggle) delete vectors[k]; }
+            polys.forEach(pg=>{ if(pg.toggle) pg.hidden=true; });
+            for(const k in pts){ if(pts[k].toggle) pts[k].hidden=true; }
+        }
+        return {pts, lines, vectors, segments, polys, conics, env};
+    }
+
+    // ===================== 读数 =====================
+    function vecOf(scene,name){ const v=scene.vectors[name]; return v? [v.to[0]-v.from[0], v.to[1]-v.from[1]] : null; }
+    function computeReadouts(scene){
+        const out=[];
+        (BOARD.readouts||[]).forEach(r=>{
+            let text='—', scalar=null, dyncolor=null;
+            const P=n=>scene.pts[n]?scene.pts[n].xy:null;
+            try{
+                switch(r.type){
+                    case 'coord':{ const p=P(r.of); text=p?`(${fmt(p[0])}, ${fmt(p[1])})`:'—'; break; }
+                    case 'length':{ let d; if(r.of){const v=vecOf(scene,r.of); d=Math.hypot(v[0],v[1]);} else {const a=P(r.a),b=P(r.b); d=Math.hypot(a[0]-b[0],a[1]-b[1]);} scalar=d; text=fmt(d,3); break; }
+                    case 'distance':{ const a=P(r.a),b=P(r.b); scalar=Math.hypot(a[0]-b[0],a[1]-b[1]); text=fmt(scalar,3); break; }
+                    case 'dot':{ const u=vecOf(scene,r.a), v=vecOf(scene,r.b); scalar=u[0]*v[0]+u[1]*v[1]; text=fmt(scalar,3); break; }
+                    case 'slope':{ const L=scene.lines[r.of].L; scalar=(Math.abs(L.dir[0])<1e-4)?null:L.dir[1]/L.dir[0]; text=(scalar===null)?'不存在(垂直)':fmt(scalar); break; }
+                    case 'slope_product':{ const L1=scene.lines[r.a].L,L2=scene.lines[r.b].L; const k1=L1.dir[1]/L1.dir[0],k2=L2.dir[1]/L2.dir[0]; scalar=k1*k2; text=fmt(scalar,3); break; }
+                    case 'area_triangle':{ const a=P(r.pts[0]),b=P(r.pts[1]),c=P(r.pts[2]); scalar=Math.abs((b[0]-a[0])*(c[1]-a[1])-(c[0]-a[0])*(b[1]-a[1]))/2; text=fmt(scalar,3); break; }
+                    case 'distance_point_line':{ const p=P(r.point); const {a,b,c}=lineABC(scene.lines[r.line].L); scalar=Math.abs(a*p[0]+b*p[1]+c)/Math.hypot(a,b); text=fmt(scalar,3); break; }
+                    case 'expr':{ const penv=Object.assign({}, scene.env); for(const n in scene.pts){ const pp=scene.pts[n].xy; if(pp&&isFinite(pp[0])){ penv[n+'_x']=pp[0]; penv[n+'_y']=pp[1]; } } scalar=evalExpr(r.expr, penv); text=fmt(scalar, r.digits!=null?r.digits:2); break; }
+                    case 'status':{ const penv=Object.assign({}, scene.env); for(const n in scene.pts){ const pp=scene.pts[n].xy; if(pp&&isFinite(pp[0])){ penv[n+'_x']=pp[0]; penv[n+'_y']=pp[1]; } } const v=evalExpr(r.expr, penv), rhs=(r.rhs!=null?r.rhs:0), op=r.op||'>';
+                        const ok = op==='<'? v<rhs-1e-9 : op==='<='? v<=rhs+1e-9 : op==='>'? v>rhs+1e-9 : op==='>='? v>=rhs-1e-9 : op==='=='? Math.abs(v-rhs)<1e-6 : !!v;
+                        text = ok?(r.okText||'满足'):(r.badText||'不满足'); scalar=ok?1:0; dyncolor=ok?'#059669':'#dc2626'; break; }
+                }
+            }catch(e){ text='—'; }
+            out.push({id:r.id, label:r.label, text, scalar, highlight:!!r.highlight, color:r.color, dyncolor});
+        });
+        return out;
+    }
+
+    // ===================== Canvas 渲染 =====================
+    const canvas=document.getElementById('geometry-canvas');
+    const ctx=canvas.getContext('2d');
+    let scale=100, offX=0, offY=0, cssW=0, cssH=0;
+    const view = BOARD.view || {xRange:[-5,5], yRange:[-4,4]};
+    const SX = x => offX + x*scale;          // 数学→屏幕
+    const SY = y => offY - y*scale;
+
+    function resizeCanvas(){
+        const rect=canvas.parentElement.getBoundingClientRect();
+        const dpr=window.devicePixelRatio||1;
+        canvas.width=rect.width*dpr; canvas.height=rect.height*dpr;
+        canvas.style.width=rect.width+'px'; canvas.style.height=rect.height+'px';
+        ctx.setTransform(1,0,0,1,0,0); ctx.scale(dpr,dpr);
+        cssW=rect.width; cssH=rect.height;
+        const spanX=view.xRange[1]-view.xRange[0], spanY=view.yRange[1]-view.yRange[0];
+        scale=Math.min((rect.width-40)/spanX, (rect.height-40)/spanY);
+        offX=rect.width/2 - ((view.xRange[0]+view.xRange[1])/2)*scale;
+        offY=rect.height/2 + ((view.yRange[0]+view.yRange[1])/2)*scale;
+        update(); resizeDrawCanvas();
+    }
+
+    function drawPolyline(poly, breakOnLeave=false){
+        let started=false;
+        ctx.beginPath();
+        for(const [x,y] of poly){
+            const inView = x>=view.xRange[0]-2 && x<=view.xRange[1]+2 && y>=view.yRange[0]-2 && y<=view.yRange[1]+2;
+            if(breakOnLeave && !inView){ started=false; continue; }
+            if(!started){ ctx.moveTo(SX(x),SY(y)); started=true; } else ctx.lineTo(SX(x),SY(y));
+        }
+        ctx.stroke();
+    }
+
+    function drawArrow(from,to,color){
+        const fx=SX(from[0]),fy=SY(from[1]),tx=SX(to[0]),ty=SY(to[1]);
+        const ang=Math.atan2(ty-fy,tx-fx), hl=10;
+        ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=2.5;
+        ctx.beginPath(); ctx.moveTo(fx,fy); ctx.lineTo(tx,ty); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(tx,ty);
+        ctx.lineTo(tx-hl*Math.cos(ang-Math.PI/6), ty-hl*Math.sin(ang-Math.PI/6));
+        ctx.lineTo(tx-hl*Math.cos(ang+Math.PI/6), ty-hl*Math.sin(ang+Math.PI/6));
+        ctx.fill();
+    }
+
+    function draw(scene){
+        ctx.clearRect(0,0,cssW,cssH);
+        // 网格
+        ctx.strokeStyle='#334155'; ctx.lineWidth=0.5;
+        for(let x=Math.ceil(view.xRange[0]);x<=view.xRange[1];x++){ctx.beginPath();ctx.moveTo(SX(x),0);ctx.lineTo(SX(x),cssH);ctx.stroke();}
+        for(let y=Math.ceil(view.yRange[0]);y<=view.yRange[1];y++){ctx.beginPath();ctx.moveTo(0,SY(y));ctx.lineTo(cssW,SY(y));ctx.stroke();}
+        // 坐标轴
+        ctx.strokeStyle='#94a3b8'; ctx.fillStyle='#94a3b8'; ctx.lineWidth=1.5;
+        ctx.beginPath(); ctx.moveTo(10,SY(0)); ctx.lineTo(cssW-12,SY(0)); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cssW-12,SY(0)); ctx.lineTo(cssW-22,SY(0)-5); ctx.lineTo(cssW-22,SY(0)+5); ctx.fill();
+        ctx.beginPath(); ctx.moveTo(SX(0),cssH-10); ctx.lineTo(SX(0),12); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(SX(0),12); ctx.lineTo(SX(0)-5,22); ctx.lineTo(SX(0)+5,22); ctx.fill();
+        ctx.font='italic 14px "Times New Roman"'; ctx.fillStyle='#cbd5e1';
+        ctx.fillText('x',cssW-16,SY(0)+16); ctx.fillText('y',SX(0)-16,16); ctx.fillText('O',SX(0)-14,SY(0)+16);
+
+        // 圆锥曲线 + 渐近线（本帧解析出的数值曲线，随 @param 重绘）
+        Object.values(scene.conics||{}).forEach(cn=>{
+            if(cn.hidden) return;
+            if(cn.kind==='hyperbola' && cn.asymptotes){
+                ctx.strokeStyle=col('asymptote'); ctx.lineWidth=1; ctx.setLineDash([5,5]);
+                hyperbolaAsymptotes(cn).forEach(L=>{const seg=clipLine(L,view); if(seg){ctx.beginPath();ctx.moveTo(SX(seg[0][0]),SY(seg[0][1]));ctx.lineTo(SX(seg[1][0]),SY(seg[1][1]));ctx.stroke();}});
+                ctx.setLineDash([]);
+            }
+            ctx.strokeStyle=col(cn.color||'curve'); ctx.lineWidth=3;
+            if(cn.dashed) ctx.setLineDash([7,5]);
+            sampleConic(cn,view).forEach(poly=>drawPolyline(poly, cn.kind==='hyperbola'||cn.kind==='parabola'));
+            ctx.setLineDash([]);
+        });
+
+        // 轨迹（locus trace）
+        if(BOARD.trace){ const tr=BOARD.trace; const p=BOARD.param; const path=[];
+            const steps=160; for(let i=0;i<=steps;i++){const v=p.min+(p.max-p.min)*i/steps; const sc=buildScene(v); const pt=sc.pts[tr.of]; if(pt&&isFinite(pt.xy[0])) path.push(pt.xy);}
+            ctx.strokeStyle=col(tr.color||'locus'); ctx.lineWidth=2; ctx.setLineDash([2,3]); drawPolyline(path,true); ctx.setLineDash([]);
+        }
+
+        // 多边形（三角形等，半透明填充）
+        scene.polys.forEach(pg=>{ if(pg.hidden) return; if(pg.pts.some(p=>!p||!isFinite(p[0])||!isFinite(p[1]))) return;
+            ctx.beginPath(); pg.pts.forEach((p,i)=> i?ctx.lineTo(SX(p[0]),SY(p[1])):ctx.moveTo(SX(p[0]),SY(p[1])));
+            if(!pg.open) ctx.closePath();
+            ctx.fillStyle=col(pg.color); ctx.fill();
+            if(pg.stroke){ctx.strokeStyle=col(pg.stroke); ctx.lineWidth=1.5; ctx.stroke();}
+        });
+
+        // 线段
+        for(const k in scene.segments){ const s=scene.segments[k]; if(s.hidden) continue; if(!s.a||!s.b||!isFinite(s.a[0])||!isFinite(s.b[0])) continue;
+            ctx.strokeStyle=col(s.color); ctx.lineWidth=2; if(s.dashed)ctx.setLineDash([6,5]);
+            ctx.beginPath(); ctx.moveTo(SX(s.a[0]),SY(s.a[1])); ctx.lineTo(SX(s.b[0]),SY(s.b[1])); ctx.stroke(); ctx.setLineDash([]);
+        }
+
+        // 直线（裁剪到视窗）
+        for(const k in scene.lines){ const ln=scene.lines[k]; const seg=clipLine(ln.L,view); if(!seg) continue;
+            ctx.strokeStyle=col(ln.color); ctx.lineWidth=2; if(ln.dashed)ctx.setLineDash([6,5]);
+            ctx.beginPath(); ctx.moveTo(SX(seg[0][0]),SY(seg[0][1])); ctx.lineTo(SX(seg[1][0]),SY(seg[1][1])); ctx.stroke(); ctx.setLineDash([]);
+        }
+
+        // 向量
+        for(const k in scene.vectors){ const v=scene.vectors[k]; if(!v.from||!v.to||!isFinite(v.from[0])||!isFinite(v.to[0])) continue; drawArrow(v.from,v.to,col(v.color)); }
+
+        // 点 + 标签
+        for(const name in scene.pts){ const pt=scene.pts[name]; if(pt.hidden||!pt.xy||!isFinite(pt.xy[0])) continue;
+            const r=pt.emphasis?7:5;
+            ctx.fillStyle=col(pt.color); ctx.beginPath(); ctx.arc(SX(pt.xy[0]),SY(pt.xy[1]),r,0,2*Math.PI); ctx.fill();
+            ctx.strokeStyle=pt.emphasis?'#fff':'#1e293b'; ctx.lineWidth=pt.emphasis?2:1.5; ctx.stroke();
+            if(pt.label){ ctx.fillStyle='#f8fafc'; ctx.font='bold 11px sans-serif'; ctx.fillText(pt.label, SX(pt.xy[0])+8, SY(pt.xy[1])-7); }
+        }
+    }
+
+    // ===================== 控制台 DOM（由数据生成）=====================
+    function renderKatex(el){ if(typeof renderMathInElement!=='undefined') renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false}); }
+
+    function buildConsole(){
+        // 题目
+        
+        const problemBody=document.getElementById('prob-body');
+        problemBody.innerHTML=DATA.lesson?.problem||'';
+        const heading=document.createElement('span');
+        heading.className='font-bold text-slate-800';
+        heading.textContent=DATA.lesson?.title||'';
+        const topbar=document.getElementById('topbar');
+        topbar.append(heading);
+        const navigation=problemBody.firstElementChild;
+        if(navigation?.matches('p')&&navigation.querySelector('a[href="index.html"]')){
+            const separator=document.createElement('span');
+            separator.className='text-slate-300';separator.textContent='|';
+            navigation.removeAttribute('style');navigation.className='text-slate-500';
+            topbar.append(separator,navigation);
+        }
+        document.getElementById('console-title').textContent = BOARD.consoleTitle || UI.consoleTitle;
+        document.getElementById('sol-title-text').textContent = UI.solutionTitle;
+        document.getElementById('sol-vlabel').textContent = UI.solutionTitle;
+
+        // 参数滑块
+        const p=BOARD.param;
+        if(p){
+            document.getElementById('param-block').classList.remove('hidden');
+            document.getElementById('param-label').innerHTML = (p.label||p.name)+' :';
+            const s=document.getElementById('param-slider');
+            s.min=p.min; s.max=p.max; s.step=p.step||0.5; s.value=(p.value!==undefined?p.value:p.min);
+            const ticks=document.getElementById('param-ticks');
+            ticks.innerHTML = (p.ticks||[`${p.min}${p.unit||''}`, `${p.max}${p.unit||''}`]).map(t=>`<span>${t}</span>`).join('');
+            s.addEventListener('input', update);
+        }
+        // 读数行容器（值在 update 里填）
+        const ro=document.getElementById('readouts');
+        ro.innerHTML = (BOARD.readouts||[]).map(r=>{
+            if(r.highlight) return `<div class="flex justify-between items-center pt-1"><span class="text-slate-800 font-semibold">${r.label}:</span><span id="ro-${r.id}" class="text-base font-bold bg-teal-50 text-teal-700 px-3 py-1 rounded-lg border border-teal-200">—</span></div>`;
+            return `<div class="flex justify-between border-b border-dashed border-slate-200 pb-2"><span>${r.label}:</span><span id="ro-${r.id}" class="font-bold" style="color:${r.color?col(r.color):'#0f172a'}">—</span></div>`;
+        }).join('');
+
+        // 范围条
+        if(BOARD.rangeBar){ document.getElementById('rangebar-block').classList.remove('hidden');
+            document.getElementById('rangebar-cur').textContent = UI.current;
+            const rl=document.getElementById('rangebar-range'); rl.innerHTML = BOARD.rangeBar.label||''; }
+
+        // 定值指示器
+        if(BOARD.constant){ document.getElementById('constant-block').classList.remove('hidden');
+            document.getElementById('constant-val').innerHTML = '≡ '+(BOARD.constant.label||''); }
+
+        // 答案区间（参数轴）：高亮 [lo,hi] 子区间
+        if(BOARD.answerBand){ const ab=BOARD.answerBand;
+            document.getElementById('answerband-block').classList.remove('hidden');
+            document.getElementById('answerband-cur').textContent = '当前 '+((BOARD.param&&BOARD.param.name)||'值')+':';
+            document.getElementById('answerband-label').innerHTML = ab.label||'';
+            const L=((ab.lo-ab.min)/(ab.max-ab.min))*100, R=((ab.max-ab.hi)/(ab.max-ab.min))*100;
+            const fill=document.getElementById('answerband-fill');
+            fill.style.left=Math.max(L,0)+'%'; fill.style.right=Math.max(R,0)+'%'; }
+
+        // 辅助线开关
+        if(BOARD.auxToggle){
+            window.__AUX_ON = BOARD.auxToggle.default!==false;
+            document.getElementById('aux-block').classList.remove('hidden');
+            document.getElementById('aux-label').textContent = BOARD.auxToggle.label || '显示辅助线';
+            const cb=document.getElementById('aux-chk'); cb.checked = window.__AUX_ON;
+            cb.addEventListener('change', ()=>{ window.__AUX_ON = cb.checked; update(); });
+        }
+        // 图例
+        const legend=document.getElementById('legend'); const items=[];
+        (BOARD.conics||[]).forEach(c=>{ if(c.legend!==false) items.push(`<div class="flex items-center gap-2"><span class="w-3 h-1.5 inline-block rounded" style="background:${col(c.color||'curve')}"></span> ${c.label||c.name}</div>`); });
+        (BOARD.legend||[]).forEach(it=> items.push(`<div class="flex items-center gap-2"><span class="w-3 h-1.5 inline-block rounded" style="background:${col(it.color)}"></span> ${it.text}</div>`));
+        legend.innerHTML=items.join('');
+
+        // 解析步骤
+        const sb=document.getElementById('solution-body');
+        sb.innerHTML=(DATA.steps||[]).map((st,i)=>{
+            const no=String(i+1).padStart(2,'0');
+            return `<div class="${i>0?'border-t border-slate-100 pt-5':''}">
+                <div class="flex items-start gap-4 mb-4">
+                    <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold font-mono text-sm flex-shrink-0">${no}</span>
+                    <h3 class="text-lg font-bold text-slate-900 pt-0.5">${st.title||''}</h3>
+                </div>
+                <div class="prose max-w-none text-slate-700 leading-relaxed text-sm md:text-base space-y-3">${st.content||''}</div>
+            </div>`;
+        }).join('');
+
+        renderKatex(document.body);
+    }
+
+    // ===================== 主更新循环 =====================
+    let curParam = BOARD.param ? (BOARD.param.value!==undefined?BOARD.param.value:BOARD.param.min) : 0;
+    function update(){
+        if(BOARD.param){ const s=document.getElementById('param-slider'); curParam=parseFloat(s.value);
+            const p=BOARD.param; const dec=p.step?(p.step<0.1?2:(p.step<1?1:0)):0;
+            document.getElementById('param-val').textContent = fmt(curParam, dec)+(p.unit||''); }
+        const scene=buildScene(curParam);
+        const ros=computeReadouts(scene);
+        ros.forEach(r=>{ const el=document.getElementById('ro-'+r.id); if(el){ el.textContent=r.text; if(r.dyncolor) el.style.color=r.dyncolor; } });
+        // 范围条指针
+        if(BOARD.rangeBar){ const rb=BOARD.rangeBar; const tracked=ros.find(r=>r.id===rb.of);
+            if(tracked && tracked.scalar!==null){ const pct=((tracked.scalar-rb.min)/(rb.max-rb.min))*88+6;
+                document.getElementById('rangebar-ptr').style.left=Math.min(Math.max(pct,0),100)+'%'; } }
+        // 答案区间指针（参数轴）
+        if(BOARD.answerBand){ const ab=BOARD.answerBand; const pct=((curParam-ab.min)/(ab.max-ab.min))*100;
+            document.getElementById('answerband-ptr').style.left=Math.min(Math.max(pct,0),100)+'%'; }
+        draw(scene);
+    }
+    function resetPlot(){ const p=BOARD.param; if(!p) return; const s=document.getElementById('param-slider');
+        s.value=(p.standard!==undefined?p.standard:(p.value!==undefined?p.value:p.min)); update(); }
+    window.resetPlot=resetPlot;
+
+    // ===================== 画笔涂鸦叠加层 =====================
+    const drawCanvas=document.getElementById('draw-canvas'); const dctx=drawCanvas.getContext('2d');
+    let penMode=null,isDrawing=false,penColor='#ffffff',penSize=3,strokes=[],curStroke=null;
+    function resizeDrawCanvas(){ const rect=drawCanvas.parentElement.getBoundingClientRect(); const dpr=window.devicePixelRatio||1;
+        drawCanvas.width=rect.width*dpr; drawCanvas.height=rect.height*dpr; drawCanvas.style.width=rect.width+'px'; drawCanvas.style.height=rect.height+'px';
+        dctx.setTransform(1,0,0,1,0,0); dctx.scale(dpr,dpr); redrawStrokes(rect.width,rect.height); }
+    function redrawStrokes(w,h){ dctx.clearRect(0,0,w,h); dctx.lineCap='round'; dctx.lineJoin='round';
+        strokes.forEach(s=>{ if(!s.pts.length)return; const sx=w/s.w,sy=h/s.h;
+            dctx.globalCompositeOperation=s.eraser?'destination-out':'source-over'; dctx.strokeStyle=s.color; dctx.lineWidth=s.size;
+            dctx.beginPath(); dctx.moveTo(s.pts[0].x*sx,s.pts[0].y*sy);
+            if(s.pts.length===1) dctx.lineTo(s.pts[0].x*sx+0.01,s.pts[0].y*sy+0.01); else for(let i=1;i<s.pts.length;i++)dctx.lineTo(s.pts[i].x*sx,s.pts[i].y*sy);
+            dctx.stroke(); }); dctx.globalCompositeOperation='source-over'; }
+    function drawLiveSegment(){ const p=curStroke.pts,n=p.length; dctx.lineCap='round'; dctx.lineJoin='round';
+        dctx.globalCompositeOperation=curStroke.eraser?'destination-out':'source-over'; dctx.strokeStyle=curStroke.color; dctx.lineWidth=curStroke.size;
+        dctx.beginPath(); if(n===1){dctx.moveTo(p[0].x,p[0].y);dctx.lineTo(p[0].x+0.01,p[0].y+0.01);} else {dctx.moveTo(p[n-2].x,p[n-2].y);dctx.lineTo(p[n-1].x,p[n-1].y);} dctx.stroke(); dctx.globalCompositeOperation='source-over'; }
+    const getDrawPos=e=>{const rect=drawCanvas.getBoundingClientRect(); return {x:e.clientX-rect.left,y:e.clientY-rect.top};};
+    drawCanvas.addEventListener('pointerdown',e=>{ if(!penMode)return; isDrawing=true; drawCanvas.setPointerCapture(e.pointerId); const rect=drawCanvas.getBoundingClientRect();
+        curStroke={color:penColor,size:penSize,eraser:penMode==='eraser',pts:[getDrawPos(e)],w:rect.width,h:rect.height}; strokes.push(curStroke); drawLiveSegment(); });
+    drawCanvas.addEventListener('pointermove',e=>{ if(!isDrawing||!penMode)return; curStroke.pts.push(getDrawPos(e)); drawLiveSegment(); });
+    function endStroke(){isDrawing=false;curStroke=null;}
+    drawCanvas.addEventListener('pointerup',endStroke); drawCanvas.addEventListener('pointercancel',endStroke); drawCanvas.addEventListener('pointerleave',()=>{if(isDrawing)endStroke();});
+    const penBtn=document.getElementById('pen-btn'),eraserBtn=document.getElementById('eraser-btn'),clearDrawBtn=document.getElementById('clear-draw-btn'),undoBtn=document.getElementById('undo-btn'),penSizeInput=document.getElementById('pen-size'),swatches=document.querySelectorAll('.draw-swatch');
+    function updateToolbarUI(){ penBtn.classList.toggle('bg-slate-600',penMode==='pen'); penBtn.classList.toggle('text-white',penMode==='pen'); eraserBtn.classList.toggle('bg-slate-600',penMode==='eraser'); eraserBtn.classList.toggle('text-white',penMode==='eraser');
+        if(penMode){drawCanvas.style.pointerEvents='auto'; drawCanvas.style.cursor=penMode==='eraser'?'cell':'crosshair';} else drawCanvas.style.pointerEvents='none'; }
+    function setMode(m){penMode=(penMode===m)?null:m; updateToolbarUI();}
+    penBtn.addEventListener('click',()=>setMode('pen')); eraserBtn.addEventListener('click',()=>setMode('eraser'));
+    clearDrawBtn.addEventListener('click',()=>{strokes=[]; const rect=drawCanvas.getBoundingClientRect(); redrawStrokes(rect.width,rect.height);});
+    undoBtn.addEventListener('click',()=>{if(!strokes.length)return; strokes.pop(); const rect=drawCanvas.getBoundingClientRect(); redrawStrokes(rect.width,rect.height);});
+    penSizeInput.addEventListener('input',()=>{penSize=parseInt(penSizeInput.value,10);});
+    swatches.forEach(sw=>sw.addEventListener('click',()=>{penColor=sw.dataset.color; swatches.forEach(s=>{s.classList.remove('ring-2','ring-white');s.classList.add('ring-1','ring-slate-600');}); sw.classList.remove('ring-1','ring-slate-600'); sw.classList.add('ring-2','ring-white'); if(penMode!=='pen')setMode('pen');}));
+    updateToolbarUI();
+
+    // ===================== 解析面板收起 / 展开 =====================
+    const solutionPanel=document.getElementById('solution-panel'),solutionBody=document.getElementById('solution-body'),toggleSolutionBtn=document.getElementById('toggle-solution'),solTitle=document.getElementById('sol-title'),solVlabel=document.getElementById('sol-vlabel'),solHeader=document.getElementById('sol-header'),solChevron=document.getElementById('sol-chevron');
+    let solutionCollapsed=false;
+    function applySolutionState(){ solutionBody.classList.toggle('hidden',solutionCollapsed); solChevron.classList.toggle('rotate-180',solutionCollapsed);
+        solutionPanel.classList.toggle('lg:w-[360px]',!solutionCollapsed); solutionPanel.classList.toggle('lg:w-14',solutionCollapsed); solutionPanel.classList.toggle('lg:px-2',solutionCollapsed);
+        solHeader.classList.toggle('lg:flex-col',solutionCollapsed); solHeader.classList.toggle('lg:gap-3',solutionCollapsed); solTitle.classList.toggle('lg:hidden',solutionCollapsed); solVlabel.classList.toggle('lg:block',solutionCollapsed);
+        toggleSolutionBtn.title=solutionCollapsed?UI.expand:UI.collapse; requestAnimationFrame(resizeCanvas); }
+    solutionPanel.addEventListener('transitionend',e=>{if(e.propertyName==='width')resizeCanvas();});
+    toggleSolutionBtn.addEventListener('click',()=>{solutionCollapsed=!solutionCollapsed; applySolutionState();});
+
+    // ===================== 启动 =====================
+    window.addEventListener('resize',resizeCanvas);
+    window.onload=()=>{ buildConsole(); resizeCanvas(); };
+    </script>
+</body>
+</html>

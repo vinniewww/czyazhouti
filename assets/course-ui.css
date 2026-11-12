@@ -1,0 +1,26 @@
+
+:root{--course-font:system-ui,"Microsoft YaHei","PingFang SC",sans-serif}
+html body,body .section-index-hero,body .chapter-menu-panel,body .chapter-menu-trigger,body .chapter-menu-header button{font-family:var(--course-font)}
+body .section-index-hero .hero-poem{font-family:KaiTi,STKaiti,serif}
+body .section-index-hero .hero-attribution{font-family:var(--course-font)}
+.section-index-page>section[style*="max-width:850px"]{width:min(calc(100% - 32px),1120px);max-width:none!important;padding:0!important;margin:24px auto!important}
+.section-index-page :is(div,section):has(> .course-index-card),.section-index-page :is(div,section):has(> :is(div.card,article) > .course-index-card){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.section-index-page :is(div.card,article):has(> .course-index-card){border:0;border-radius:0;box-shadow:none;padding:0;margin:0;background:transparent}
+.section-index-page a.course-index-card{box-sizing:border-box;display:block;padding:16px;border:1px solid #dbe3ee;border-radius:14px;background:#fff;box-shadow:none;color:#0f172a!important;text-decoration:none!important;font-size:16px;font-weight:650;line-height:1.5;transition:border-color .15s,background .15s}
+.section-index-page a.course-index-card:hover{transform:none;background:#f8fafc;border-color:#94a3b8}
+.course-index-card :is(.d,.lesson-card-note,.text-slate-500.text-sm){display:block;color:#475569;font-size:14px;font-weight:400;line-height:1.65;margin:6px 0 0}
+.section-index-page :is(.lesson-summary-grid,.ideas,.grid):has(> :is(.lesson-summary-card,.idea,.bg-slate-50)){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.section-index-page :is(.lesson-summary-card,.ideas>.idea,.grid>.bg-slate-50){box-sizing:border-box;padding:16px;background:#fff;border:1px solid #dbe3ee;border-radius:14px}
+.section-index-page :is(h2,.sec){font-size:20px;font-weight:700;line-height:1.4}
+body.course-detail-page>header{box-sizing:border-box;display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;margin:12px 12px 0;padding:8px 16px;background:white;color:#0f172a;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 2px #0f172a12}
+body.course-detail-page>header h1{order:-1;margin:0;font-size:14px;font-weight:700;line-height:1.5}
+body.course-detail-page>header nav,body.course-detail-page>header nav a{font-size:14px;color:#475569}
+@media(max-width:640px){.section-index-page :is(div,section):has(> .course-index-card),.section-index-page :is(div,section):has(> :is(div.card,article) > .course-index-card),.section-index-page :is(.lesson-summary-grid,.ideas,.grid):has(> :is(.lesson-summary-card,.idea,.bg-slate-50)){grid-template-columns:1fr}}
+
+.lesson-problem-source {
+  margin: 0.5rem 0 0.65rem;
+  color: #475569;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.45;
+}

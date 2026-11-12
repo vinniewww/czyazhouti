@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>胡不归问题 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 1 章 几何最值 · 第 2 节</p><h1>胡不归问题 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">「胡不归？胡不归？」—— 老人弥留之际的念叨</p><p>同样一段路，走在驿道上和砂石地上，耗时不同。</p><p>少年在驿道上快、在砂石地上慢，怎样走路才能最早到家？<br>
+    这是一类 <strong class="text-white">PA+k·PB（0&lt;k&lt;1）型加权最值问题</strong>：转化带系数线段，化加权为普通最短路径。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-01%E5%B0%86%E5%86%9B%E9%A5%AE%E9%A9%AC/index.html">← 上一节 · 将军饮马</a><a class="hero-link" id="next-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-03%E9%98%BF%E6%B0%8F%E5%9C%86%E9%97%AE%E9%A2%98/index.html">下一节 · 阿氏圆问题 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：转化 k·AC，化加权为直线</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 找方向不变的线段</p><p>k·AC 能转化，是因为 AC 方向不变；系数若在方向变化的线段上，此法失效（考虑提系数）。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 构造角 sinα = k</p><p>作 Rt△ 使斜边 1、对边 k，得角 α；沿 α 作射线 AD，则对任意 C 有 CH⊥AD ⇒ CH = k·AC。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 垂线段最短</p><p>BC + k·AC = BC + CH ≥ B 到射线 AD 的距离，B、C、H 共线时取等。系数 &gt;1 先提出去。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课程路径（5 个互动页面）</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-模型认识.html">
+        <p class="text-xs text-slate-400 mb-1">模型认识</p>
+        <p class="font-bold text-lg">胡不归模型（k = 1/2）</p>
+        <p class="text-sm text-slate-500 mt-1">驿道 + 砂石地行程问题。构造 sin∠DAN = k 的射线，CH = k·AC，最小值 = B 到 AD 的距离 2+5√3/4。</p>
+      </a>
+
+      <a class="course-index-card" href="01-引例-2019长沙.html">
+        <p class="text-xs text-slate-400 mb-1">引例 · 现成的角</p>
+        <p class="font-bold text-lg">2019·长沙 · 等腰三角形中的转化</p>
+        <p class="text-sm text-slate-500 mt-1">AB=AC=10，tanA=2 ⇒ sin∠ABE=√5/5 现成可用。CD+(√5/5)BD 最小 = 4√5 = BE。</p>
+      </a>
+
+      <a class="course-index-card" href="02-构造夹角.html">
+        <p class="text-xs text-slate-400 mb-1">关键一步 · 变式 1</p>
+        <p class="font-bold text-lg">自己动手构造角 α（k 滑块联动）</p>
+        <p class="text-sm text-slate-500 mt-1">没有现成角时：作 Rt△ 斜边 1、对边 k。拖 k 滑块，射线、直角三角形、最优位置全部实时重画。</p>
+      </a>
+
+      <a class="course-index-card" href="03-系数大于1.html">
+        <p class="text-xs text-slate-400 mb-1">变式 2 · 系数大于 1</p>
+        <p class="font-bold text-lg">√5·CD + BD 的最小值</p>
+        <p class="text-sm text-slate-500 mt-1">k&gt;1 无法构造，提出 √5 化为 √5(CD+(√5/5)BD)。最小值 = √5×4√5 = 20。</p>
+      </a>
+
+      <a class="course-index-card" href="04-适用条件.html">
+        <p class="text-xs text-slate-400 mb-1">适用条件 · 边界情形</p>
+        <p class="font-bold text-lg">k 的上限：垂足不能掉队</p>
+        <p class="text-sm text-slate-500 mt-1">s = AB·cos(α+β) &gt; 0 才有内部最优；k 越过 cos β ≈ 0.848 时最优退化为 C=A、min = AB。拖 k 滑块亲眼观看退化过程。</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-sm leading-relaxed">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先拖后讲</strong>：先让学生拖滑块观察目标量变化（右侧范围条指针实时移动），再勾选"显示辅助线"揭示作法。</li>
+      <li><strong>构造夹角页是重点</strong>：拖动 k 滑块，射线 AD、Rt△（斜边 1、对边 k）、最优位置 C 联动重画——直观体会"方向不变，方能造角"。</li>
+      <li><strong>与将军饮马对比讲</strong>：将军饮马是"对称转化"，胡不归是"造角转化"，都归结为"两点之间线段最短 / 垂线段最短"。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    胡不归问题 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第 1 章第 2 节（p13–14 讲解部分）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="01" data-section="01-02"></script></body>
+</html>

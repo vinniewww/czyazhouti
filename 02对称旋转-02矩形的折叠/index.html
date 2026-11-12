@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矩形的折叠 · 互动课件目录</title>
+<style>
+  body { font-family: -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+         background:#f8fafc; color:#0f172a; margin:0; padding:32px 20px; }
+  .wrap { max-width:900px; margin:0 auto; }
+  .hero { background:#0f172a; color:#fff; border-radius:16px; padding:28px 32px; margin-bottom:24px; }
+  .hero .tag { font-size:13px; color:#94a3b8; letter-spacing:1px; }
+  .hero h1 { margin:6px 0 10px; font-size:26px; }
+  .hero p { margin:4px 0; color:#cbd5e1; font-size:14px; line-height:1.7; }
+  h2 { font-size:17px; margin:28px 0 12px; color:#334155; }
+  .ideas { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:8px; }
+  .idea { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px; }
+  .idea .n { color:#0d9488; font-weight:700; margin-bottom:6px; }
+  .idea p { margin:0; font-size:13px; line-height:1.6; color:#475569; }
+  .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  .card { display:block; background:#fff; border:1px solid #e2e8f0; border-radius:12px;
+          padding:14px 16px; text-decoration:none; color:inherit; transition:box-shadow .15s; }
+  .card:hover { box-shadow:0 4px 14px rgba(15,23,42,.08); }
+  .card .t { font-weight:600; font-size:14px; color:#0f172a; }
+  .card .s { font-size:12.5px; color:#0d9488; margin:4px 0 6px; }
+  .card .d { font-size:12.5px; color:#64748b; line-height:1.55; }
+  .tagdrag { display:inline-block; font-size:11px; color:#b45309; background:#fef3c7;
+             border-radius:6px; padding:1px 7px; margin-left:6px; vertical-align:middle; }
+  .tips { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 20px; }
+  .tips li { font-size:13.5px; color:#475569; line-height:1.7; margin-bottom:6px; }
+  .foot { font-size:12px; color:#94a3b8; text-align:center; margin-top:26px; }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="section-index-page">
+
+<div class="wrap section-index-wrap">
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 2 章 对称旋转 · 第 2 节</p><h1>矩形的折叠 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">折痕上的点，到折叠前后的对应点等距。</p><p>「涉及对称的问题，以矩形对称最多，变化形式多样——无论如何变化，解题工具有三：勾股定理、三角形全等或相似、三角函数」</p><p>从条件出发，找到每种对称下隐藏的结论（对应边相等、对应角相等、落点轨迹），往往是解题关键。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-01%E5%AF%B9%E7%A7%B0%E7%9A%84%E6%80%A7%E8%B4%A8/index.html">← 上一节 · 对称的性质</a><a class="hero-link" id="next-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-03%E6%97%8B%E8%BD%AC%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E6%89%8B%E6%8B%89%E6%89%8B%E6%A8%A1%E5%9E%8B/index.html">下一节 · 旋转的性质与手拉手模型 →</a></nav></header>
+
+  <h2>核心思想：三大工具 × 六类折叠</h2>
+  <div class="ideas">
+    <div class="idea"><div class="n">① 勾股定理</div><p>出现三边可求的直角三角形时设元列方程，是折叠求线段的第一选择。</p></div>
+    <div class="idea"><div class="n">② 全等与相似</div><p>折叠必出全等转移线段；落点在内部、外部时寻找三垂直相似逐个推边。</p></div>
+    <div class="idea"><div class="n">③ 三角函数</div><p>把线段比转化为锐角的正弦、余弦、正切值，常作最后一步收尾。</p></div>
+  </div>
+
+  <h2>课程路径（8 个页面）</h2>
+  <div class="cards">
+    <a class="course-index-card" href="00-模型认识.html"><div class="t">模型认识 · 折叠即轴对称</div><div class="s">落点轨迹：以折痕上的点为圆心的圆</div><div class="d">拖滑块改变折点 E，落点 F 在矩形外→边上→内之间变化；BF≡BC 恒成立。前言、三大工具与六类情形导航。</div></a>
+    <a class="course-index-card" href="01-引例1-沿对角线折叠.html"><div class="t">引例1 · 沿对角线折叠<span class="tagdrag">拖滑块找全等</span></div><div class="s">AF = √3</div><div class="d">△AFB≌△EFD ⇒ BF=DF；设 AF=x 则 BF=DF=2x，x²+3²=(2x)²。拖动 F 观察 |BF−DF| 最小为 0。</div></a>
+    <a class="course-index-card" href="02-引例2-落点在矩形边上.html"><div class="t">引例2 · 落点在矩形边上（2019·天水）</div><div class="s">sin∠EFC = 4/5</div><div class="d">AF=AD=5 → BF=4、FC=1；CE=x、EF=3−x，x²+1=(3−x)²。拖 E 把 F 恰好落到 BC 上。</div></a>
+    <a class="course-index-card" href="03-引例3-落点在矩形内.html"><div class="t">引例3 · 落点在矩形内（2019·莱芜区）</div><div class="s">CE = (5−√5)/2</div><div class="d">作 MN∥BC，tan∠BAF=1/2 设元 + BF=√5 勾股得 FM=1；△BMF∽△FNE 求 FE。可显示 MN 与两个相似三角形。</div></a>
+    <a class="course-index-card" href="04-引例4-延长线过点C.html"><div class="t">引例4 · EA′ 延长线过 C（2018·泰安）</div><div class="s">sin∠ABE = √10/10</div><div class="d">BA′=6、A′C=8；等角转移 tan∠DEC=3/4 → DE=8、AE=2。拖 E 使 E、A′、C 三点共线。</div></a>
+    <a class="course-index-card" href="05-引例5-落点在矩形外.html"><div class="t">引例5 · 落点在矩形外（2018·南宁）</div><div class="s">cos∠ADF = 15/17（选 C）</div><div class="d">△OEF≌△OBP ⇒ EP=BF=x；AF=4−x、EF=3−x、DF=x+1，(x+1)²=9+(4−x)²。两盏状态灯：OP=OF 且 E 在矩形外。</div></a>
+    <a class="course-index-card" href="06-引例6-多次折叠有中点.html"><div class="t">引例6 · 多次折叠必有中点（2019·桂林）<span class="tagdrag">四灯全绿</span></div><div class="s">AD/AB = √2（选 B）</div><div class="d">三组全等 ⇒ E、G 为中点；△BAE∽△EDG ⇒ b²=2a²。拖 E 观察四个折叠闭合条件何时同时成立。</div></a>
+    <a class="course-index-card" href="07-引例8-动态中的折叠.html"><div class="t">引例8 · 动态中的折叠（2020·武汉）</div><div class="s">S = t²/4 − t/4 + 1</div><div class="d">折痕垂直平分 DM；FH=t/2，DE=1+t²/4，CF=1−t/2+t²/4，梯形面积化简。t=1/2 时面积最小 15/16。</div></a>
+  </div>
+
+  <h2>课堂使用建议</h2>
+  <ul class="tips">
+    <li>模型页先讲清"折叠即轴对称"与落点轨迹（圆），这是全节的核心 hidden conclusion。</li>
+    <li>每个引例页都先拖滑块"把条件凑成立"（状态灯变绿），再展开分步解析对照读数，最后拖离观察偏差。</li>
+    <li>引例1、2 是"三边可求直角三角形"路线；引例3、5 是"三垂直相似"路线；引例4 是"等角转移"路线；引例6 是"全等出中点"路线；引例8 是含参动态路线——五条路线对应教材六类情形。</li>
+    <li>页面需联网加载公式排版（KaTeX）；画板与折叠交互在本地实时计算。</li>
+  </ul>
+
+  <div class="foot">矩形的折叠 · 互动课件——内容整理自《初中压轴题是怎样练成的》第2章第2节（讲解部分，不含真题演练）</div>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="02" data-section="02-02"></script></body>
+</html>

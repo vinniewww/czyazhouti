@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三垂直模型 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 2 章 对称旋转 · 第 4 节</p><h1>三垂直模型 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">三条垂线能把分散的线段放进可比较的直角三角形。</p><p>「同样作为模型，但"三垂直模型"的定位和"手拉手模型"完全不同」<span class="text-slate-400 text-sm ml-2">——《初中压轴题是怎样练成的》</span></p><p>"手拉手模型"是在讲旋转本身，而"三垂直"模型本身并不复杂，更多地是<strong class="text-white">作为一种方法</strong>来解决其他问题。<br>
+    了解模型需了解其定位与应用，会帮助我们更准确地把握模型。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-03%E6%97%8B%E8%BD%AC%E7%9A%84%E6%80%A7%E8%B4%A8%E4%B8%8E%E6%89%8B%E6%8B%89%E6%89%8B%E6%A8%A1%E5%9E%8B/index.html">← 上一节 · 旋转的性质与手拉手模型</a><a class="hero-link" id="next-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-05%E5%8D%8A%E8%A7%92%E6%A8%A1%E5%9E%8B/index.html">下一节 · 半角模型 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：三垂直是一把"度量尺"</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 等腰直角 → 全等</p><p>等腰直角三角形顶点处一条直线过顶，两腰向该直线作垂线，则两个小直角三角形全等（AAS），把斜边"搬"成两段直角边。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 去掉等腰 → 相似</p><p>直角的作用不在于是特殊角，而在于它们都相等。把直角换成其他等角，即为"一线三等角"，得到相似而非全等。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 坐标系中的"化斜为直"</p><p>在坐标系中由"相等且垂直"的边构造三垂直，把斜线、斜三角形转化为横平竖直的线段，从而求出坐标与解析式。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课程路径（8 个互动页面）</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-模型认识-三垂直.html">
+        <p class="text-xs text-slate-400 mb-1">本节导读</p>
+        <p class="font-bold text-lg">模型认识 · 三垂直模型</p>
+        <p class="text-sm text-slate-500 mt-1">等腰直角顶点过一线、两腰作垂线 ⇒ △ADC≌△CEB。拖动直线 l 看两个小三角形如何始终全等。</p>
+      </a>
+
+      <a class="course-index-card" href="01-引例1-菱形折叠.html">
+        <p class="text-xs text-slate-400 mb-1">引例 1 · 一线三等角</p>
+        <p class="font-bold text-lg">引例 1（2018·遵义）· 菱形折叠求 BE</p>
+        <p class="text-sm text-slate-500 mt-1">∠ABC=120° 让菱形藏着两个等边三角形，折痕 EF 上出现一线三等角 ⇒ △FGD∽△GEB。</p>
+      </a>
+
+      <a class="course-index-card" href="02-引例2-旋转90度.html">
+        <p class="text-xs text-slate-400 mb-1">引例 2 · 旋转 90°</p>
+        <p class="font-bold text-lg">引例 2（2019·河池）· 求 AC 解析式</p>
+        <p class="text-sm text-slate-500 mt-1">A(2,0)、B(0,1)，AB 绕 A 顺时针转 90° 得 AC，作垂线构造三垂直全等，读出 C 再求解析式。</p>
+      </a>
+
+      <a class="course-index-card" href="03-引例3-梯形旋转.html">
+        <p class="text-xs text-slate-400 mb-1">引例 3 · 梯形旋转</p>
+        <p class="font-bold text-lg">引例 3（2018·临安）· 旋转腰求面积</p>
+        <p class="text-sm text-slate-500 mt-1">直角梯形中把腰 CD 绕 D 旋转 90°，作垂线得 EN，再算 △BDE 的面积。</p>
+      </a>
+
+      <a class="course-index-card" href="04-引例4-旋转45度.html">
+        <p class="text-xs text-slate-400 mb-1">引例 4 · 旋转 45°</p>
+        <p class="font-bold text-lg">引例 4 · 45° ⇒ 构造等腰直角三角形</p>
+        <p class="text-sm text-slate-500 mt-1">直线绕 M 顺时针转 45°，先造等腰直角三角形，用三垂直全等求 P 坐标与旋转后直线 CD。</p>
+      </a>
+
+      <a class="course-index-card" href="05-引例5-旋转已知角.html">
+        <p class="text-xs text-slate-400 mb-1">引例 5 · 旋转已知角</p>
+        <p class="font-bold text-lg">引例 5 · 已知角 ⇒ 三垂直相似</p>
+        <p class="text-sm text-slate-500 mt-1">把 45° 换成任意已知角，全等退化为相似，用三垂直相似的比例关系照样求出直线 CD。</p>
+      </a>
+
+      <a class="course-index-card" href="06-引例6-化斜为直.html">
+        <p class="text-xs text-slate-400 mb-1">引例 6 · 化斜为直</p>
+        <p class="font-bold text-lg">引例 6 · 三垂直的度量作用</p>
+        <p class="text-sm text-slate-500 mt-1">先由 AB²+BC²=AC² 判定直角，再作 CH⊥x 轴构造三垂直相似，读出 C 与直线 OC。</p>
+      </a>
+
+      <a class="course-index-card" href="07-模型总结.html">
+        <p class="text-xs text-slate-400 mb-1">本节总结</p>
+        <p class="font-bold text-lg">三垂直模型 · 全章小结</p>
+        <p class="text-sm text-slate-500 mt-1">两种形态（全等 / 相似）+ 坐标系化斜为直，并以"婆罗摩笈多模型"（引例 7）收尾。</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-sm leading-relaxed">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先拖后讲</strong>：先让学生拖动左栏滑块观察几何量变化（坐标、长度、角度会实时更新），再对照中间栏的分步解析。</li>
+      <li><strong>看清"直角"的搬运</strong>：三垂直的要害是那三个直角——点动时注意垂足 D、E 的位置如何变化，而全等（相似）关系始终成立。</li>
+      <li><strong>定值会"亮"</strong>：出现 <span class="text-teal-600 font-medium">≡</span> 标记的地方表示该量恒为定值，正是模型的要害。</li>
+      <li><strong>重置按钮</strong>：把滑块归位到题目的关键状态（如旋转 45°、已知角 θ），便于重复演示。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    三垂直模型 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第2章第4节（讲解部分，不含真题演练）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="02" data-section="02-04"></script></body>
+</html>

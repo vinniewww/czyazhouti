@@ -1,0 +1,18 @@
+
+body.section-index-page{margin:0;padding-top:16px}
+.section-index-page .section-index-wrap{box-sizing:border-box;width:min(calc(100% - 32px),1120px);max-width:none;margin:0 auto;padding:0 0 32px}
+header.section-index-hero{box-sizing:border-box;display:flex;flex-direction:column;position:relative;width:min(calc(100% - 32px),1120px);min-height:290px;margin:0 auto;padding:28px 32px 24px;background:#111827;color:#fff;border-radius:16px;box-shadow:0 8px 20px #0f172a20;font-family:system-ui,"Microsoft YaHei",sans-serif}
+.section-index-wrap>header.section-index-hero{width:100%}
+.section-index-hero .hero-meta{color:#a8b8ce;font-size:14px;line-height:1.5;margin:0 130px 8px 0}
+.section-index-hero h1{font-size:clamp(25px,3.2vw,36px);font-weight:750;line-height:1.2;margin:0;color:#fff}
+.section-index-hero .hero-intro{margin:12px 0;color:#cbd5e1;font-size:15px;line-height:1.55}
+.section-index-hero .hero-intro p{margin:0 0 4px;color:inherit;line-height:inherit}
+.section-index-hero .hero-home{position:absolute;top:20px;right:24px}
+.section-index-hero .hero-nav{margin-top:auto;padding-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.section-index-hero .hero-link{display:inline-flex;align-items:center;padding:7px 13px;border:1px solid #64748b;border-radius:999px;background:#1e293b;color:#e2e8f0;font-size:14px;line-height:1.4;text-decoration:none}
+.section-index-hero .hero-link:hover{background:#334155}
+@media(max-width:620px){header.section-index-hero{padding:18px;min-height:310px}.section-index-hero .hero-home{position:static;align-self:flex-start;margin-bottom:12px}.section-index-hero .hero-meta{margin-right:0}}
+
+.section-index-hero .hero-intro .hero-highlight{color:#fde68a;font-weight:600;font-size:17px;margin:0 0 8px}.section-index-hero .hero-intro .hero-highlight,.section-index-hero .hero-poem{font-family:KaiTi,STKaiti,serif}.section-index-hero .hero-attribution{color:#a8b8ce;font-family:system-ui,"Microsoft YaHei",sans-serif;font-size:13px;font-weight:400;margin-inline-start:6px}
+
+@media(min-width:950px){header.section-index-hero{min-height:320px}}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手连心模型与邻补四边形 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 2 章 对称旋转 · 第 6 节</p><h1>手连心模型与邻补四边形 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">抓住共同的「心」，两条看似无关的线段可以配成等长。</p><p>「旋转本身或许并不难，难的是构造旋转 —— 而构造旋转的一个必要前提，就是邻边相等」<span class="text-slate-400 text-sm ml-2">——《初中压轴题是怎样练成的》</span></p><p>这一节要回答一个问题：<strong class="text-white">「手连心」为什么一定成立？</strong>
+    表面上是正方形绕中心转，本质只有两条 —— <strong class="text-white">角平分线</strong> 与 <strong class="text-white">对角互补</strong>。
+    把这两条抽出来，就得到了更一般的 <em class="text-amber-200 not-italic">邻补四边形</em>：只要邻边相等 + 对角互补，就一定能把一个三角形旋转过去，
+    让三条线段拼成一条直线。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-05%E5%8D%8A%E8%A7%92%E6%A8%A1%E5%9E%8B/index.html">← 上一节 · 半角模型</a><a class="hero-link" id="next-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-07%E5%85%B1%E7%82%B9%E6%97%8B%E8%BD%AC/index.html">下一节 · 共点旋转 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：旋转是「果」，两个条件才是「因」</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 一个「心」+ 一个直角</p><p>正方形中心、斜边中点、圆心 —— 只要图形共这个心、且两条射线互相垂直，就有 <b>EM=EN</b>。全等的理由永远是 ASA：一对 45°、一对公共边、一对互余角。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 90° 可以换成 180°−∠MBN</p><p>把「直角」放宽成「对角互补」，全等照样成立 —— 于是有了邻补四边形。它是手连心的「去包装版」，也是本节真正的模型。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 旋转之后必共线</p><p><b>AB=AD</b> 保证转得过去，<b>对角互补</b> 保证转过去后 C、D、E 共线。共线一出，三条线段立刻变成「和差关系」，这就是 <b>CB+CD=2sin(∠BAD/2)·CA</b> 的来源。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-indigo-600 rounded"></span>本节内容 · 7 个页面</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-模型认识-手连心.html">
+        <p class="text-xs text-slate-400 mb-1">知识导航</p>
+        <p class="font-bold text-lg">手连心模型 · EM=EN</p>
+        <p class="text-sm text-slate-500 mt-1">正方形对角线的交点作「心」，转动小正方形。三条证法（两次 ASA + 一条垂线），拖到哪儿读数都相等。</p>
+      </a>
+
+      <a class="course-index-card" href="01-模型变式与延长线.html">
+        <p class="text-xs text-slate-400 mb-1">模型变式</p>
+        <p class="font-bold text-lg">等腰直角三角形与延长线</p>
+        <p class="text-sm text-slate-500 mt-1">去掉正方形外框，只留「斜边中点 + 直角」。∠FEH=90° 与 BM=CN 等价；M、N 跑到延长线上，结论依然是 135° 那对全等。</p>
+      </a>
+
+      <a class="course-index-card" href="02-邻补四边形.html">
+        <p class="text-xs text-slate-400 mb-1">模型探究</p>
+        <p class="font-bold text-lg">邻补四边形 · 模型的本质</p>
+        <p class="text-sm text-slate-500 mt-1">角平分线 + 对角互补 ⇒ EM=EN。AB=AD、∠BAD+∠BCD=180° 旋转后 C、D、E 共线，拖 ∠BAD 看 CB+CD 与 CA 的固定比例。</p>
+      </a>
+
+      <a class="course-index-card" href="03-引例1-贵阳.html">
+        <p class="text-xs text-slate-400 mb-1">引例 1 · 圆</p>
+        <p class="font-bold text-lg">引例 1（2020·贵阳）· ∠DOE</p>
+        <p class="text-sm text-slate-500 mt-1">正三角形内接于圆，DA=EB。把「心」换成圆心，绕 O 转 120°，角一拼就出来。</p>
+      </a>
+
+      <a class="course-index-card" href="04-引例2-正方形对角线.html">
+        <p class="text-xs text-slate-400 mb-1">引例 2 · 截长补短</p>
+        <p class="font-bold text-lg">引例 2 · BM=6√2 求 BC</p>
+        <p class="text-sm text-slate-500 mt-1">正方形对角线交点 M 就是「心」。延长 BC 使 CN=AB，凑出等腰直角 △BMN，BN=12 ⇒ BC=7。</p>
+      </a>
+
+      <a class="course-index-card" href="05-引例3-阜新.html">
+        <p class="text-xs text-slate-400 mb-1">引例 3 · 共圆</p>
+        <p class="font-bold text-lg">引例 3（2019·阜新）· CD=CE</p>
+        <p class="text-sm text-slate-500 mt-1">公共边 AB 的两个直角三角形 ⇒ A、B、C、D 共圆。AE=BD 一搬，△CDB≌△CEA，CD=CE 且互相垂直。</p>
+      </a>
+
+      <a class="course-index-card" href="06-模型总结与拓展.html">
+        <p class="text-xs text-slate-400 mb-1">本节总结</p>
+        <p class="font-bold text-lg">模型总结与拓展 · AM²+CN²=MN²</p>
+        <p class="text-sm text-slate-500 mt-1">三条识别特征、与半角/三垂直的分工，以及不常被提起的勾股结论 —— 连上 MN 就多一条等式。</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- 使用建议 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-amber-500 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先动手再动脑</strong>：第 0、1 页先让学生把滑块拖几个来回，自己发现 EM=EN，再问「为什么」。</li>
+      <li><strong>两条线对照看</strong>：左栏读数里 <span class="text-teal-600 font-medium">EM、EN</span> 与 <span class="text-teal-600 font-medium">CB+CD、2sin(∠BAD/2)·CA</span> 是同一件事的两副面孔 —— 都是「旋转把线段搬过去」。</li>
+      <li><strong>制造冲突</strong>：第 1 页把 θ 拖到 135° 以下，M、N 跑到延长线上，先让学生判断「还相等吗」，再揭晓答案。</li>
+      <li><strong>把「心」找出来</strong>：三个引例分别用心形中心、正方形中心、圆心做「心」，让学生自己说出找心的三条线索。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    手连心模型与邻补四边形 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第2章第6节（讲解部分，不含真题演练）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="02" data-section="02-06"></script></body>
+</html>

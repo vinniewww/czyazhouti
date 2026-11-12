@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自制课件 · 总目录</title>
+<style>
+  :root {
+    --bg: #FBF9F4;
+    --ink: #1F2430;
+    --ink-soft: #5A6070;
+    --accent: #B03A2E;
+    --blue: #1A5276;
+    --line: #E5DFD3;
+    --card: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 18px; margin-bottom: 36px; }
+  .kicker {
+    font-size: 13px; letter-spacing: 4px; color: var(--accent);
+    font-weight: 700; text-transform: uppercase; margin-bottom: 8px;
+  }
+  h1 {
+    font-family: KaiTi, STKaiti, Georgia, serif;
+    font-size: 38px; font-weight: 700; letter-spacing: 2px;
+  }
+  .sub { color: var(--ink-soft); font-size: 14px; margin-top: 8px; }
+  .chapter { margin-bottom: 36px; }
+  .chapter-title {
+    display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px;
+  }
+  .chapter-num {
+    font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: var(--accent);
+  }
+  .chapter-name { font-size: 20px; font-weight: 700; }
+  .chapter-meta { color: var(--ink-soft); font-size: 13px; }
+  .sections {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px;
+  }
+  a.card {
+    display: block; background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 18px 20px; text-decoration: none; color: inherit;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  a.card:hover {
+    transform: translateY(-3px); border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(176, 58, 46, .12);
+  }
+  .sec-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .sec-num {
+    font-family: Georgia, serif; font-size: 15px; font-weight: 700; color: var(--blue);
+  }
+  .sec-name { font-size: 17px; font-weight: 700; }
+  .sec-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+  .sec-go {
+    margin-top: 10px; font-size: 13px; color: var(--accent); font-weight: 600;
+  }
+  footer { margin-top: 48px; color: var(--ink-soft); font-size: 12px; text-align: center; }
+</style>
+<link rel="stylesheet" href="assets/chapter-menu.css"></head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">KIMI WORK · 互动课件库</div>
+    <h1>自制课件 · 总目录</h1>
+    <div class="sub">命名规范：章号章标题-节号节标题　例：01几何最值-01将军饮马</div>
+  </header>
+
+  <div class="chapter" id="chapter-01">
+    <div class="chapter-title">
+      <span class="chapter-num">01</span>
+      <span class="chapter-name">几何最值</span>
+      <span class="chapter-meta">共 6 节</span>
+    </div>
+    <div class="sections">
+      <a class="card" href="01几何最值-01将军饮马/index.html">
+        <div class="sec-head"><span class="sec-num">01</span><span class="sec-name">将军饮马</span></div>
+        <div class="sec-desc">01几何最值-01将军饮马</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="01几何最值-02胡不归问题/index.html">
+        <div class="sec-head"><span class="sec-num">02</span><span class="sec-name">胡不归问题</span></div>
+        <div class="sec-desc">01几何最值-02胡不归问题</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="01几何最值-03阿氏圆问题/index.html">
+        <div class="sec-head"><span class="sec-num">03</span><span class="sec-name">阿氏圆问题</span></div>
+        <div class="sec-desc">01几何最值-03阿氏圆问题</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="01几何最值-04费马点问题/index.html">
+        <div class="sec-head"><span class="sec-num">04</span><span class="sec-name">费马点问题</span></div>
+        <div class="sec-desc">01几何最值-04费马点问题</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="01几何最值-05构造辅助圆/index.html">
+        <div class="sec-head"><span class="sec-num">05</span><span class="sec-name">构造辅助圆</span></div>
+        <div class="sec-desc">01几何最值-05构造辅助圆</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="01几何最值-06瓜豆原理问题/index.html">
+        <div class="sec-head"><span class="sec-num">06</span><span class="sec-name">瓜豆原理问题</span></div>
+        <div class="sec-desc">01几何最值-06瓜豆原理问题</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="chapter" id="chapter-02">
+    <div class="chapter-title">
+      <span class="chapter-num">02</span>
+      <span class="chapter-name">对称旋转</span>
+      <span class="chapter-meta">共 9 节</span>
+    </div>
+    <div class="sections">
+      <a class="card" href="02对称旋转-01对称的性质/index.html">
+        <div class="sec-head"><span class="sec-num">01</span><span class="sec-name">对称的性质</span></div>
+        <div class="sec-desc">02对称旋转-01对称的性质</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-02矩形的折叠/index.html">
+        <div class="sec-head"><span class="sec-num">02</span><span class="sec-name">矩形的折叠</span></div>
+        <div class="sec-desc">02对称旋转-02矩形的折叠</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-03旋转的性质与手拉手模型/index.html">
+        <div class="sec-head"><span class="sec-num">03</span><span class="sec-name">旋转的性质与手拉手模型</span></div>
+        <div class="sec-desc">02对称旋转-03旋转的性质与手拉手模型</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-04三垂直模型/index.html">
+        <div class="sec-head"><span class="sec-num">04</span><span class="sec-name">三垂直模型</span></div>
+        <div class="sec-desc">02对称旋转-04三垂直模型</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-05半角模型/index.html">
+        <div class="sec-head"><span class="sec-num">05</span><span class="sec-name">半角模型</span></div>
+        <div class="sec-desc">02对称旋转-05半角模型</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-06手连心与邻补四边形/index.html">
+        <div class="sec-head"><span class="sec-num">06</span><span class="sec-name">手连心模型与邻补四边形</span></div>
+        <div class="sec-desc">02对称旋转-06手连心与邻补四边形</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-07共点旋转/index.html">
+        <div class="sec-head"><span class="sec-num">07</span><span class="sec-name">共点旋转</span></div>
+        <div class="sec-desc">02对称旋转-07共点旋转</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-08从全等到相似/index.html">
+        <div class="sec-head"><span class="sec-num">08</span><span class="sec-name">从全等到相似</span></div>
+        <div class="sec-desc">02对称旋转-08从全等到相似</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="02对称旋转-09托勒密定理/index.html">
+        <div class="sec-head"><span class="sec-num">09</span><span class="sec-name">托勒密定理的应用</span></div>
+        <div class="sec-desc">02对称旋转-09托勒密定理</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="chapter" id="chapter-03">
+    <div class="chapter-title">
+      <span class="chapter-num">03</span>
+      <span class="chapter-name">圆</span>
+      <span class="chapter-meta">共 4 节</span>
+    </div>
+    <div class="sections">
+      <a class="card" href="03圆-01切线的判定/index.html">
+        <div class="sec-head"><span class="sec-num">01</span><span class="sec-name">切线的判定</span></div>
+        <div class="sec-desc">03圆-01切线的判定</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="03圆-02弧中点的构造/index.html">
+        <div class="sec-head"><span class="sec-num">02</span><span class="sec-name">弧中点的构造</span></div>
+        <div class="sec-desc">03圆-02弧中点的构造</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="03圆-03圆中相似/index.html">
+        <div class="sec-head"><span class="sec-num">03</span><span class="sec-name">圆中相似</span></div>
+        <div class="sec-desc">03圆-03圆中相似</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+      <a class="card" href="03圆-04圆中线段计算/index.html">
+        <div class="sec-head"><span class="sec-num">04</span><span class="sec-name">圆中线段计算</span></div>
+        <div class="sec-desc">03圆-04圆中线段计算</div>
+        <div class="sec-go">进入课件 →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="chapter" id="chapter-04"><div class="chapter-title"><span class="chapter-num">04</span><span class="chapter-name">经典几何模型</span><span class="chapter-meta">共 5 节</span></div><div class="sections"><a class="card" href="04经典几何模型-01弦图的构造/index.html"><div class="sec-head"><span class="sec-num">01</span><span class="sec-name">弦图的构造</span></div><div class="sec-desc">04经典几何模型-01弦图的构造</div><div class="sec-go">进入课件 →</div></a>
+      <a class="card" href="04经典几何模型-02常见相似模型/index.html"><div class="sec-head"><span class="sec-num">02</span><span class="sec-name">常见相似模型</span></div><div class="sec-desc">04经典几何模型-02常见相似模型</div><div class="sec-go">进入课件 →</div></a>
+      <a class="card" href="04经典几何模型-03中点的构造/index.html"><div class="sec-head"><span class="sec-num">03</span><span class="sec-name">中点的构造</span></div><div class="sec-desc">04经典几何模型-03中点的构造</div><div class="sec-go">进入课件 →</div></a>
+      <a class="card" href="04经典几何模型-04反相似手拉手/index.html"><div class="sec-head"><span class="sec-num">04</span><span class="sec-name">反相似手拉手</span></div><div class="sec-desc">04经典几何模型-04反相似手拉手</div><div class="sec-go">进入课件 →</div></a>
+      <a class="card" href="04经典几何模型-05尺规作图/index.html"><div class="sec-head"><span class="sec-num">05</span><span class="sec-name">尺规作图</span></div><div class="sec-desc">04经典几何模型-05尺规作图</div><div class="sec-go">进入课件 →</div></a></div></div>
+  <div class="chapter" id="chapter-05"><div class="chapter-title"><span class="chapter-num">05</span><span class="chapter-name">二次函数的图像与性质</span><span class="chapter-meta">共 4 节</span></div><div class="sections"><a class="card" href="05二次函数的图像与性质-01二次函数的图像分析/index.html"><div class="sec-head"><span class="sec-num">01</span><span class="sec-name">二次函数的图像分析</span></div><div class="sec-desc">05二次函数的图像与性质-01二次函数的图像分析</div><div class="sec-go">进入课件 →</div></a><a class="card" href="05二次函数的图像与性质-02区间最值/index.html"><div class="sec-head"><span class="sec-num">02</span><span class="sec-name">区间最值</span></div><div class="sec-desc">05二次函数的图像与性质-02区间最值</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="05二次函数的图像与性质-03抛物线的几何性质/index.html"><div class="sec-head"><span class="sec-num">03</span><span class="sec-name">抛物线的几何性质</span></div><div class="sec-desc">05二次函数的图像与性质-03抛物线的几何性质</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="05二次函数的图像与性质-04动点与函数/index.html"><div class="sec-head"><span class="sec-num">04</span><span class="sec-name">动点与函数</span></div><div class="sec-desc">05二次函数的图像与性质-04动点与函数</div><div class="sec-go">进入课件 →</div></a></div></div>
+<div class="chapter" id="chapter-06"><div class="chapter-title"><span class="chapter-num">06</span><span class="chapter-name">函数与面积</span><span class="chapter-meta">共 2 节</span></div><div class="sections"><a class="card" href="06%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9D%A2%E7%A7%AF-01%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97/index.html"><div class="sec-head"><span class="sec-num">01</span><span class="sec-name">坐标系中的面积计算</span></div><div class="sec-desc">06函数与面积-01坐标系中的面积计算</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="06函数与面积-02面积比分析/index.html"><div class="sec-head"><span class="sec-num">02</span><span class="sec-name">面积比分析</span></div><div class="sec-desc">06函数与面积-02面积比分析</div><div class="sec-go">进入课件 →</div></a></div></div>
+<div class="chapter" id="chapter-07"><div class="chapter-title"><span class="chapter-num">07</span><span class="chapter-name">特殊图形存在性问题</span><span class="chapter-meta">共 5 节</span></div><div class="sections"><a class="card" href="07%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98-01%E7%AD%89%E8%85%B0%E4%B8%89%E8%A7%92%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98/index.html"><div class="sec-head"><span class="sec-num">01</span><span class="sec-name">等腰三角形存在性问题</span></div><div class="sec-desc">07特殊图形存在性问题-01等腰三角形存在性问题</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="07%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98-02%E7%9B%B4%E8%A7%92%E4%B8%89%E8%A7%92%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98/index.html"><div class="sec-head"><span class="sec-num">02</span><span class="sec-name">直角三角形存在性问题</span></div><div class="sec-desc">07特殊图形存在性问题-02直角三角形存在性问题</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="07%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98-03%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98/index.html"><div class="sec-head"><span class="sec-num">03</span><span class="sec-name">平行四边形存在性问题</span></div><div class="sec-desc">07特殊图形存在性问题-03平行四边形存在性问题</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="07%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98-04%E7%9F%A9%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98/index.html"><div class="sec-head"><span class="sec-num">04</span><span class="sec-name">矩形存在性问题</span></div><div class="sec-desc">07特殊图形存在性问题-04矩形存在性问题</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="07%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98-05%E8%8F%B1%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98/index.html"><div class="sec-head"><span class="sec-num">05</span><span class="sec-name">菱形存在性问题</span></div><div class="sec-desc">07特殊图形存在性问题-05菱形存在性问题</div><div class="sec-go">进入课件 →</div></a></div></div>
+<div class="chapter" id="chapter-08"><div class="chapter-title"><span class="chapter-num">08</span><span class="chapter-name">坐标系中的角</span><span class="chapter-meta">共 5 节</span></div><div class="sections"><a class="card" href="08%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E8%A7%92-01%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E8%A7%92/index.html"><div class="sec-head"><span class="sec-num">01</span><span class="sec-name">坐标系中的特殊角</span></div><div class="sec-desc">08坐标系中的角-01坐标系中的特殊角</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="08%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E8%A7%92-02%E7%9B%B8%E7%AD%89%E8%A7%92%E7%9A%84%E6%9E%84%E9%80%A0/index.html"><div class="sec-head"><span class="sec-num">02</span><span class="sec-name">相等角的构造</span></div><div class="sec-desc">08坐标系中的角-02相等角的构造</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="08%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E8%A7%92-03%E4%BA%8C%E5%80%8D%E8%A7%92%E3%80%81%E5%8D%8A%E8%A7%92%E7%9A%84%E6%9E%84%E9%80%A0/index.html"><div class="sec-head"><span class="sec-num">03</span><span class="sec-name">二倍角、半角的构造</span></div><div class="sec-desc">08坐标系中的角-03二倍角、半角的构造</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="08%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E8%A7%92-04%E7%9B%B8%E4%BC%BC%E4%B8%89%E8%A7%92%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/index.html"><div class="sec-head"><span class="sec-num">04</span><span class="sec-name">相似三角形存在性问题（一）</span></div><div class="sec-desc">08坐标系中的角-04相似三角形存在性问题（一）</div><div class="sec-go">进入课件 →</div></a>
+<a class="card" href="08%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E8%A7%92-05%E7%9B%B8%E4%BC%BC%E4%B8%89%E8%A7%92%E5%BD%A2%E5%AD%98%E5%9C%A8%E6%80%A7%E9%97%AE%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/index.html"><div class="sec-head"><span class="sec-num">05</span><span class="sec-name">相似三角形存在性问题（二）</span></div><div class="sec-desc">08坐标系中的角-05相似三角形存在性问题（二）</div><div class="sec-go">进入课件 →</div></a></div></div>
+  <footer>共 8 章 · 40 节</footer>
+</div>
+<script src="assets/chapter-menu.js" data-chapter="" data-section=""></script></body>
+</html>

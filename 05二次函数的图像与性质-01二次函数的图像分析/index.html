@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二次函数的图像分析 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+ .poem { font-family: "KaiTi", "STKaiti", serif; }
+ .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+ .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/lesson-index.css"><link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+ <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 5 章 二次函数的图像与性质 · 第 1 节</p><h1>二次函数的图像分析 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">从系数读图像，从交点读方程的根。</p><p>比较对称轴、顶点与判别式，再用线段端点筛选交点。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../04%E7%BB%8F%E5%85%B8%E5%87%A0%E4%BD%95%E6%A8%A1%E5%9E%8B-05%E5%B0%BA%E8%A7%84%E4%BD%9C%E5%9B%BE/index.html">← 上一节 · 尺规作图</a><a class="hero-link" id="next-section" href="../05%E4%BA%8C%E6%AC%A1%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E4%B8%8E%E6%80%A7%E8%B4%A8-02%E5%8C%BA%E9%97%B4%E6%9C%80%E5%80%BC/index.html">下一节 · 区间最值 →</a></nav></header>
+
+ 
+
+ <section class="mt-8">
+  <section class="lesson-summary" aria-label="核心思想"><h2>核心思想</h2><div class="lesson-summary-grid"><article class="lesson-summary-card"><h3>从系数读图像</h3><p>二次项决定开口，对称轴和纵截距帮助判断其余系数。</p></article><article class="lesson-summary-card"><h3>从函数值读位置</h3><p>用对称轴、顶点和函数值比较判断图像特征。</p></article><article class="lesson-summary-card"><h3>从方程读交点</h3><p>联立求根，再按线段的端点范围筛选。</p></article></div></section><h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-indigo-600 rounded"></span>本节内容 · 10 个页面</h2>
+  <div class="grid md:grid-cols-2 gap-4"><a class="course-index-card" href="00-系数与图像.html"><p class="font-bold text-lg">系数与图像</p><span class="lesson-card-note">$a&gt;0$ 向上，$a&lt;0$ 向下。在相同坐标比例下，$|a|$ 越大，开口越窄。</span></a>
+<a class="course-index-card" href="01-张家界引例-从抛物线读符号.html"><p class="font-bold text-lg">张家界引例-从抛物线读符号</p><span class="lesson-card-note">开口向下，故 $a&lt;0$；对称轴在 $y$ 轴右侧，故 $b&gt;0$；纵截距在原点上方，故 $c&gt;0$。</span></a>
+<a class="course-index-card" href="02-代数式与图像特征.html"><p class="font-bold text-lg">代数式与图像特征</p><span class="lesson-card-note">$f(\pm 1)=a\pm b+c$，$f(\pm 2)=4a\pm 2b+c$，$4f(\frac{1}{2})=a+2b+4c$。</span></a>
+<a class="course-index-card" href="03-毕节引例-用对称性找根.html"><p class="font-bold text-lg">毕节引例-用对称性找根</p><span class="lesson-card-note">两根关于 $x=1$ 对称，另一根为 $3$，所以 $\Delta &gt;0$。由开口、对称轴和纵截距得 $a&gt;0$、$b&lt;0$、$c&lt;0$，因此 $abc&gt;0$。</span></a>
+<a class="course-index-card" href="04-广安引例-顶点与最大值.html"><p class="font-bold text-lg">广安引例-顶点与最大值</p><span class="lesson-card-note">$a&lt;0$、$b&lt;0$、$c&gt;0$，所以①正确。$f(-2)&gt;0$，所以②错误。</span></a>
+<a class="course-index-card" href="05-与直线的交点.html"><p class="font-bold text-lg">与直线的交点</p><span class="lesson-card-note">令 $ax^{2}+bx+c=mx+n$，得到 $ax^{2}+(b-m)x+(c-n)=0$。</span></a>
+<a class="course-index-card" href="06-淄博引例-对所有参数成立.html"><p class="font-bold text-lg">淄博引例-对所有参数成立</p><span class="lesson-card-note">$\Delta =4a^{2}-4a-4b=(2a-1)^{2}-4b-1$。</span></a>
+<a class="course-index-card" href="07-与线段的交点.html"><p class="font-bold text-lg">与线段的交点</p><span class="lesson-card-note">用联立方程求根。只计线段内部时要求 $m&lt;x&lt;n$；包含端点时改用 $m\le x\le n$。斜线段也可联立其所在直线，再用横坐标范围筛选。</span></a>
+<a class="course-index-card" href="08-南京引例-定点族与顶点.html"><p class="font-bold text-lg">南京引例-定点族与顶点</p><span class="lesson-card-note">两式相减得 $4b=-4$，所以 $b=-1$，且 $c=-1-4a$。</span></a>
+<a class="course-index-card" href="09-资阳引例-水平交点夹住动点.html"><p class="font-bold text-lg">资阳引例-水平交点夹住动点</p><span class="lesson-card-note">$M$ 的纵坐标 $n=-2-\frac{2m}{3}$。</span></a></div>
+ </section>
+
+ <footer class="mt-8 text-center text-xs text-slate-400">
+  二次函数的图像分析 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第 5 章第 1 节 · 书页 154–156 讲解部分
+ </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+ var b=document.getElementById('backHome'); if(!b) return;
+ var h=b.parentNode;
+ function pin(){
+  var r=h.getBoundingClientRect();
+  if(r.top>=14){
+   b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+   b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+   b.style.color='#e2e8f0'; b.style.boxShadow='none';
+  }else{
+   var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+   b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+   b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+   b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+  }
+ }
+ window.addEventListener('scroll',pin,{passive:true});
+ window.addEventListener('resize',pin);
+ pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="05" data-section="05-01"></script><script src="../assets/katex/katex.min.js"></script><script src="../assets/katex/contrib/auto-render.min.js"></script><script>document.querySelectorAll(".lesson-card-note").forEach(node=>renderMathInElement(node,{delimiters:[{left:"$",right:"$",display:false}],throwOnError:false}));</script></body>
+</html>

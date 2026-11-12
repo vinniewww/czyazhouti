@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿氏圆问题 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 1 章 几何最值 · 第 3 节</p><h1>阿氏圆问题 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">「阿氏」取自古希腊几何学家阿波罗尼奥斯的名字。</p><p>动点 P 在圆上运动，求 <strong class="text-white">PA + k·PB（0&lt;k&lt;1）型加权最值</strong>：逆用阿氏圆构造定点，把带系数的线段换成普通线段，化加权为最短路径。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-02%E8%83%A1%E4%B8%8D%E5%BD%92%E9%97%AE%E9%A2%98/index.html">← 上一节 · 胡不归问题</a><a class="hero-link" id="next-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-04%E8%B4%B9%E9%A9%AC%E7%82%B9%E9%97%AE%E9%A2%98/index.html">下一节 · 费马点问题 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：逆用阿氏圆，化加权为普通线段</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 阿氏圆的定义</p><p>PA:PB = k（k≠1）的点集是圆，即 PA = k·PB。带系数的 k·PB 可转化为普通线段 PA——问题化为 PA₁+PA₂ 型。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 逆用：由圆定出另一个定点</p><p>给圆、给一个定点 A 与系数 k，用「特殊位置 M、N」或「母子相似 OP²=OA·OB」确定 B，使 PB = k·PA 恒成立。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 化折为直</p><p>PA + k·PB = PA + PC ≥ AC，取等时 P 在 AC 与圆的交点处。系数 = 圆半径 ÷ 圆心到定点距离。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课程路径（7 个互动页面）</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-模型认识.html">
+        <p class="text-xs text-slate-400 mb-1">模型认识 · 定义与证明</p>
+        <p class="font-bold text-lg">阿氏圆：比例 → 圆（k = 2）</p>
+        <p class="text-sm text-slate-500 mt-1">内/外角平分线定理 + 定边对直角，证明轨迹是圆。拖动 P 验证 PA:PB 恒为定比。</p>
+      </a>
+
+      <a class="course-index-card" href="01-性质与应用.html">
+        <p class="text-xs text-slate-400 mb-1">性质与应用</p>
+        <p class="font-bold text-lg">五点共线 · 定比相同 · OP² = OA·OB</p>
+        <p class="text-sm text-slate-500 mt-1">三条性质的交互验证：拖动 P，观察 OP² 恒等于 OA·OB，母子相似三角形实时重画。</p>
+      </a>
+
+      <a class="course-index-card" href="02-引例1-已知AB求圆轨迹.html">
+        <p class="text-xs text-slate-400 mb-1">引例 1 · 已知 A、B 求圆轨迹</p>
+        <p class="font-bold text-lg">A(−1,0)、B(3,0)、PA:PB=3:1 → 圆心 (7/2,0)</p>
+        <p class="text-sm text-slate-500 mt-1">由定比分别找内分点 M、外分点 N，轨迹圆圆心即 MN 中点——给 A、B 求圆。</p>
+      </a>
+
+      <a class="course-index-card" href="03-引例2-已知圆求B点.html">
+        <p class="text-xs text-slate-400 mb-1">引例 2 · 已知圆求点 B</p>
+        <p class="font-bold text-lg">两种思路定 B：特殊位置 / 母子相似</p>
+        <p class="text-sm text-slate-500 mt-1">给圆、A、k 反求定点 B：思路 1 用 M 处 MA:MB=3:1；思路 2 用 OP²=OA·OB，都得 B(3,0)。</p>
+      </a>
+
+      <a class="course-index-card" href="04-引例3-最值设计.html">
+        <p class="text-xs text-slate-400 mb-1">引例 3 · 最值设计</p>
+        <p class="font-bold text-lg">PQ + ⅓PA 的最小值 = √5</p>
+        <p class="text-sm text-slate-500 mt-1">逆用阿氏圆构造 B 使 PB=⅓PA，化 PQ+⅓PA 为 PQ+PB≥BQ。拖动滑块看取等时刻。</p>
+      </a>
+
+      <a class="course-index-card" href="05-引例4-比例系数分析.html">
+        <p class="text-xs text-slate-400 mb-1">引例 4 · 比例系数的分析</p>
+        <p class="font-bold text-lg">½PA + PB 的最小值 = √10</p>
+        <p class="text-sm text-slate-500 mt-1">Rt△ 中由 CP²=CM·CA 定出 M(CM=1)，PM=½PA。思考：为什么是 ½？若求 PA+k·PB，k=⅔？</p>
+      </a>
+
+      <a class="course-index-card" href="06-模型总结.html">
+        <p class="text-xs text-slate-400 mb-1">模型总结 · 通法</p>
+        <p class="font-bold text-lg">阿氏圆三步法：识 · 构 · 求</p>
+        <p class="text-sm text-slate-500 mt-1">三要素 + 确定构造点的两条思路 + 三步法归纳，与胡不归、将军饮马横向对比。</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-sm leading-relaxed">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先拖后讲</strong>：先让学生拖动 P 点滑块观察「PA:PB 恒为定值」「OP² 恒等于 OA·OB」等定值现象，再勾选"显示辅助线"揭示 M、N 与相似三角形。</li>
+      <li><strong>引例 3、4 页把滑块默认停在最优位置 P*</strong>：打开即可看到取等时刻，再拖离 P* 观察最小值如何被"错过"。</li>
+      <li><strong>三条性质是钥匙</strong>：01 页重点讲清 OP²=OA·OB 母子相似，它是引例 2、4 确定构造点的计算工具。</li>
+      <li><strong>横向对比讲</strong>：动点在直线上 → 胡不归（构造角转化）；动点在圆上 → 阿氏圆（构造点转化）；都归结为"两点之间线段最短 / 化加权为普通最短路径"。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    阿氏圆问题 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第 1 章第 3 节（p14–16 讲解部分，不含真题演练）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="01" data-section="01-03"></script></body>
+</html>

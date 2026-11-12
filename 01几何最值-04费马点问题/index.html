@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>费马点问题 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 1 章 几何最值 · 第 4 节</p><h1>费马点问题 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">把其中一段旋转 60°，三段距离就有机会排成一条直线。</p><p>「三角形内到三顶点距离之和最小的点，各夹角皆为 120°」<span class="text-slate-400 text-sm ml-2">—— 费马 · 托里拆利点</span></p><p>在 △ABC 内找一点 P 使 <strong class="text-white">PA + PB + PC 最小</strong>：构造等边三角形，旋转 60° 把三段折线化直，最小值即共线折线的长度。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-03%E9%98%BF%E6%B0%8F%E5%9C%86%E9%97%AE%E9%A2%98/index.html">← 上一节 · 阿氏圆问题</a><a class="hero-link" id="next-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-05%E6%9E%84%E9%80%A0%E8%BE%85%E5%8A%A9%E5%9C%86/index.html">下一节 · 构造辅助圆 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：等边三角形 + 旋转 60°，化三段折线为一条直线</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 识</p><p>识别费马点问题：三角形内一点到三顶点距离和最小；三夹角 120°；最大角 ≥120° 时取顶点。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 构</p><p>以一边作等边三角形，把一条线段绕顶点旋转 60°（等边即旋转 60° 的载体），使三段折线共线。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 求</p><p>连接新顶点与相对顶点得 BE，PA+PB+PC = BE 且 BE = AF = CD，算出即最小值。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课程路径（4 个互动页面）</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-模型认识.html">
+        <p class="text-xs text-slate-400 mb-1">模型认识 · 定义与作法</p>
+        <p class="font-bold text-lg">费马点：三夹角 120°</p>
+        <p class="text-sm text-slate-500 mt-1">定义与结论 + 三步作图法（等边△ABD、ACE，连 CD、BE 交于 P）+ 最大角 ≥120° 特例，附原书配图。</p>
+      </a>
+
+      <a class="course-index-card" href="01-费马点证明与求值.html">
+        <p class="text-xs text-slate-400 mb-1">证明与求值</p>
+        <p class="font-bold text-lg">旋转构造：PA+PB+PC = BE = AF = CD</p>
+        <p class="text-sm text-slate-500 mt-1">旋转 60° 共线化证明（△APQ 等边、△APC≌△AQE）+ 求值结论与对比图，拖动 P 验证 ≥ BE。</p>
+      </a>
+
+      <a class="course-index-card" href="02-引例1-武汉2019.html">
+        <p class="text-xs text-slate-400 mb-1">引例 1 · 旋转 60° 求最值</p>
+        <p class="font-bold text-lg">2019·武汉：min = NH = 2√29</p>
+        <p class="text-sm text-slate-500 mt-1">问题背景 PA+PC=PE；以 MG 作等边△MHG，min=NH，HQ⊥NM 计算得 2√29。拖动 O 扫描验证。</p>
+      </a>
+
+      <a class="course-index-card" href="03-模型总结.html">
+        <p class="text-xs text-slate-400 mb-1">模型总结 · 通法</p>
+        <p class="font-bold text-lg">费马点三步法：识 · 构 · 求</p>
+        <p class="text-sm text-slate-500 mt-1">三步法归纳 + 与将军饮马、胡不归、阿氏圆横向对比，统一为「化折为直」。</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-sm leading-relaxed">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先拖后讲</strong>：先让学生拖动 P 沿水平线扫描，观察 PA+PB+PC 何时最小、夹角何时同时变 120°，再展开证明。</li>
+      <li><strong>勾选辅助线</strong>：显示等边三角形与 CD、BE、AF 连线，揭示费马点的作图法与「三线共点、三线等长」。</li>
+      <li><strong>引例 1 页把滑块默认停在最优位置 O*</strong>：打开即可看到 min = NH = 2√29，再拖离观察和变大。</li>
+      <li><strong>横向对比讲</strong>：动点在直线上 → 将军饮马（对称）、胡不归（构造角）；动点在圆上 → 阿氏圆（构造点）；点在三角形内 → 费马点（旋转 60°）。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    费马点问题 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第 1 章第 4 节（p19–20 左栏讲解部分，不含真题演练）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="01" data-section="01-04"></script></body>
+</html>

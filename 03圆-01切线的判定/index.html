@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>切线的判定 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+ .poem { font-family: "KaiTi", "STKaiti", serif; }
+ .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+ .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+ <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 3 章 圆 · 第 1 节</p><h1>切线的判定 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">切点处，半径与切线垂直。</p><p>「有交点，连半径，证垂直；无交点，作垂直，证半径」<span class="text-slate-400 text-sm ml-2">——《初中压轴题是怎样练成的》</span></p><p>切线判定是圆综合题的高频设问。三种判定方法（定义法、距离法、判定定理）背后是同一个几何事实：
+  圆心到直线的距离等于半径。本节从判定定理出发，总结两个最高频的「常见相切图」，
+  再用 2020·青海 与 2018·江西 两道引例把方法落到实处。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-09%E6%89%98%E5%8B%92%E5%AF%86%E5%AE%9A%E7%90%86/index.html">← 上一节 · 托勒密定理的应用</a><a class="hero-link" id="next-section" href="../03%E5%9C%86-02%E5%BC%A7%E4%B8%AD%E7%82%B9%E7%9A%84%E6%9E%84%E9%80%A0/index.html">下一节 · 弧中点的构造 →</a></nav></header>
+
+ <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+  <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：判定归于一件事 —— d = r</h2>
+  <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 有交点：连半径，证垂直</p><p>公共点与圆心连线是半径，证它垂直于已知直线（平行于已知垂线 / 夹角 90°）。</p></div>
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 无交点：作垂直，证半径</p><p>过圆心作直线的垂线，证垂线段等于半径 —— 本质是距离法 d=r。</p></div>
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 两张常见相切图</p><p>角平分线+等腰得平行；全等把已知直角搬到半径外端。识别构图，判定就成型。</p></div>
+  </div>
+ </section>
+
+ <section class="mt-8">
+  <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-indigo-600 rounded"></span>本节内容 · 5 个页面</h2>
+  <div class="grid md:grid-cols-2 gap-4">
+
+   <a class="course-index-card" href="00-知识导航-切线的判定.html">
+    <p class="text-xs text-slate-400 mb-1">知识导航</p>
+    <p class="font-bold text-lg">三种判定方法与口诀</p>
+    <p class="text-sm text-slate-500 mt-1">定义法 / 距离法 / 判定定理 + 性质。拖滑块改变 d：只有 d=r 时直线与圆相切，交点个数 2→1→0。</p>
+   </a>
+   <a class="course-index-card" href="01-常见相切图.html">
+    <p class="text-xs text-slate-400 mb-1">知识导航</p>
+    <p class="font-bold text-lg">常见相切图①②</p>
+    <p class="text-sm text-slate-500 mt-1">角平分线+等腰得平行（OC∥AH → OC⊥CH）；全等把已知直角搬到半径外端。滑块下三个角始终相等。</p>
+   </a>
+   <a class="course-index-card" href="02-引例1-内切圆半径.html">
+    <p class="text-xs text-slate-400 mb-1">引例 1 · 2020·青海</p>
+    <p class="font-bold text-lg">内切圆半径：r = 2S/(a+b+c)</p>
+    <p class="text-sm text-slate-500 mt-1">3-4-5 直角三角形 r=1。面积法推导 + 直角三角形专属公式 r=(a+b−c)/2，两式在画板中始终相等。</p>
+   </a>
+   <a class="course-index-card" href="03-引例2-江西-证切线.html">
+    <p class="text-xs text-slate-400 mb-1">引例 2（1）· 2018·江西</p>
+    <p class="font-bold text-lg">两次换角证 BO 平分∠ABC，全等得切线</p>
+    <p class="text-sm text-slate-500 mt-1">∠AOD=∠BAD → ∠DAO=∠ABD=∠OBC → 作 OH⊥AB，△BOH≌△BOC 得 OH=OC，AB 是切线。</p>
+   </a>
+   <a class="course-index-card" href="04-引例2-江西-求AD.html">
+    <p class="text-xs text-slate-400 mb-1">引例 2（2）· 2018·江西</p>
+    <p class="font-bold text-lg">Rt△AOD 收尾：OD=√5，AD=2√5</p>
+    <p class="text-sm text-slate-500 mt-1">BH=BC=6、OH=OC=3、OA=5；由 ∠AOD=∠BAD 得 AD=2OD，勾股解方程。拖滑块看 AD/OD 恒为 2。</p>
+   </a>
+
+  </div>
+ </section>
+
+ <footer class="mt-8 text-center text-xs text-slate-400">
+  切线的判定 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第3章第1节（讲解部分，不含真题演练）
+ </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+ var b=document.getElementById('backHome'); if(!b) return;
+ var h=b.parentNode;
+ function pin(){
+  var r=h.getBoundingClientRect();
+  if(r.top>=14){
+   b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+   b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+   b.style.color='#e2e8f0'; b.style.boxShadow='none';
+  }else{
+   var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+   b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+   b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+   b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+  }
+ }
+ window.addEventListener('scroll',pin,{passive:true});
+ window.addEventListener('resize',pin);
+ pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="03" data-section="03-01"></script></body>
+</html>

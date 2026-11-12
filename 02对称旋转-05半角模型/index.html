@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>半角模型 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 2 章 对称旋转 · 第 5 节</p><h1>半角模型 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">把半角转出另一半，就能拼成整个角。</p><p>「如果说手拉手侧重在旋转本身，三垂直侧重在模型构造，半角模型则更多地体现在题型变化」<span class="text-slate-400 text-sm ml-2">——《初中压轴题是怎样练成的》</span></p><p>半角模型的三条件：<strong class="text-white">角含半角、邻边相等、对角互补</strong>。后两条常以正方形为背景；
+    而"角含半角"是明面上的条件，它可以被换装成 <em class="text-amber-200 not-italic">45°、tan=1、两角互余相加、外角平分线交点</em> 等模样 —— <strong class="text-white">认出等价条件，才是本节的真正考点</strong>。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-04%E4%B8%89%E5%9E%82%E7%9B%B4%E6%A8%A1%E5%9E%8B/index.html">← 上一节 · 三垂直模型</a><a class="hero-link" id="next-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-06%E6%89%8B%E8%BF%9E%E5%BF%83%E4%B8%8E%E9%82%BB%E8%A1%A5%E5%9B%9B%E8%BE%B9%E5%BD%A2/index.html">下一节 · 手连心模型与邻补四边形 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：旋转造出"另一半角"</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 三条件缺一不可</p><p>邻边相等（转得过去）+ 对角互补（转过去能拼成直线）+ 角含半角（转了才有用）。三者齐备，截长补短的两次全等才成立。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 一次旋转，两次全等</p><p>把 △ABE 绕 A 转到 △ADG，先得 △ABE≌△ADG，再由 ∠GAF=∠EAF 得 △EAF≌△GAF ⇒ EF=BE+DF。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 结论可以互推</p><p><b>(a+u)(a+v)=2a²</b> 一条式子管住全部：EF=BE+DF、u=⅓a ⇔ v=½a、AH=AB（角平分线）。抓住它，题型怎么变都不慌。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课程路径（9 个互动页面）</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-模型认识-半角.html">
+        <p class="text-xs text-slate-400 mb-1">本节导读</p>
+        <p class="font-bold text-lg">模型认识 · 半角模型</p>
+        <p class="text-sm text-slate-500 mt-1">四边形 ABCD 中 AB=AD、∠BAD+∠BCD=180°、∠EAF=½∠BAD ⇒ EF=BE+DF。拖动看"和"与"差"两种情形。</p>
+      </a>
+
+      <a class="course-index-card" href="01-正方形中的半角.html">
+        <p class="text-xs text-slate-400 mb-1">知识导航 2</p>
+        <p class="font-bold text-lg">正方形中的半角 · 结论 1</p>
+        <p class="text-sm text-slate-500 mt-1">正方形 + ∠EAF=45° ⇒ EF=BE+DF。用"绕 A 旋转 90°"重做一遍，比截长补短更直观。</p>
+      </a>
+
+      <a class="course-index-card" href="02-结论2-MN平方.html">
+        <p class="text-xs text-slate-400 mb-1">结论 2</p>
+        <p class="font-bold text-lg">对角线参与 · MN²=BM²+DN²</p>
+        <p class="text-sm text-slate-500 mt-1">连 BD 交 AE、AF 于 M、N。把 △ADN 转 90° 造出直角，勾股关系平移成 MN²。</p>
+      </a>
+
+      <a class="course-index-card" href="03-结论3与4.html">
+        <p class="text-xs text-slate-400 mb-1">结论 3、4</p>
+        <p class="font-bold text-lg">比例与角平分线</p>
+        <p class="text-sm text-slate-500 mt-1">BE=⅓BC ⇔ DF=½DC；作 AH⊥EF 则 AH=AB，故 EA、FA 是两条角平分线。面积法一算到底。</p>
+      </a>
+
+      <a class="course-index-card" href="04-引例1-常德折叠.html">
+        <p class="text-xs text-slate-400 mb-1">引例 1 · 折叠</p>
+        <p class="font-bold text-lg">引例 1（2020·常德）· DG 的长</p>
+        <p class="text-sm text-slate-500 mt-1">沿 DE、DF 内折使 DA 与 DC 重合于 G，GF=4、EG=6。拖动边长，只有 a=12 时 ∠EDF 才是 45°。</p>
+      </a>
+
+      <a class="course-index-card" href="05-引例2-吴中区.html">
+        <p class="text-xs text-slate-400 mb-1">引例 2 · 等价条件</p>
+        <p class="font-bold text-lg">引例 2（2020·吴中区二模）· 面积</p>
+        <p class="text-sm text-slate-500 mt-1">tan∠BAC=1 就是 ∠BAC=45°，高 AD 把半角拆成两半。拖动看何时恰好 45°，得 AD=12、S=60。</p>
+      </a>
+
+      <a class="course-index-card" href="06-引例3-淄博外角平分线.html">
+        <p class="text-xs text-slate-400 mb-1">引例 3 · 角平分线</p>
+        <p class="font-bold text-lg">引例 3（2020·淄博）· 求 k</p>
+        <p class="text-sm text-slate-500 mt-1">两锐角外角平分线交于 P ⇒ ∠APB=45°、AB=AM+BN。只有 P(6,6) 同时满足两条，k=36。</p>
+      </a>
+
+      <a class="course-index-card" href="07-引例4-宿迁折叠.html">
+        <p class="text-xs text-slate-400 mb-1">引例 4 · 定值</p>
+        <p class="font-bold text-lg">引例 4（2018·宿迁改编）· 周长不变</p>
+        <p class="text-sm text-slate-500 mt-1">边长 1 的正方形沿 EF 折叠，B→M 落在 AD 上。AM=⅓ 时 x=5/9；△PDM 周长恒为 2。</p>
+      </a>
+
+      <a class="course-index-card" href="08-模型总结与拓展.html">
+        <p class="text-xs text-slate-400 mb-1">本节总结</p>
+        <p class="font-bold text-lg">模型总结与拓展（结论 1–9）</p>
+        <p class="text-sm text-slate-500 mt-1">三件套 + 两组四点共圆 + 四组相似，画板同时画出两个外接圆，看四点如何始终共圆。</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-sm leading-relaxed">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先拖后讲</strong>：先让学生拖动左栏滑块，观察读数里哪些量在变、哪些量恒定，再对照中间栏的分步解析。</li>
+      <li><strong>盯住"定值"</strong>：出现 <span class="text-teal-600 font-medium">≡</span> 标记的读数表示恒为定值 —— <em>EF=BE+DF</em>、<em>AH=AB</em>、<em>周长=2</em> 都是模型的要害。</li>
+      <li><strong>用"反例"制造冲突</strong>：引例 1、引例 2 的滑块默认不停在答案处，先让学生看到"45° 不成立"，再拖到唯一位置，比直接给答案更有效。</li>
+      <li><strong>重置按钮</strong>：把滑块归位到题目的关键状态（多为答案位置），便于反复演示。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    半角模型 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第2章第5节（讲解部分，不含真题演练）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="02" data-section="02-05"></script></body>
+</html>

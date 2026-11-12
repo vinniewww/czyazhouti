@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>区间最值 · 互动课件</title>
+<script src="../05二次函数的图像与性质-01二次函数的图像分析/assets/tailwind.js"></script>
+<style>
+ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+ .poem { font-family: "KaiTi", "STKaiti", serif; }
+ .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+ .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/lesson-index.css"><link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+ <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 5 章 二次函数的图像与性质 · 第 2 节</p><h1>区间最值 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">闭区间的最值，只需比较两个端点和落在区间内的顶点。</p><p>教材讲解、原始配图与动态画板。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../05%E4%BA%8C%E6%AC%A1%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E4%B8%8E%E6%80%A7%E8%B4%A8-01%E4%BA%8C%E6%AC%A1%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90/index.html">← 上一节 · 二次函数的图像分析</a><a class="hero-link" id="next-section" href="../05%E4%BA%8C%E6%AC%A1%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E4%B8%8E%E6%80%A7%E8%B4%A8-03%E6%8A%9B%E7%89%A9%E7%BA%BF%E7%9A%84%E5%87%A0%E4%BD%95%E6%80%A7%E8%B4%A8/index.html">下一节 · 抛物线的几何性质 →</a></nav></header>
+
+ 
+
+ <section class="mt-8">
+  <section class="lesson-summary" aria-label="核心思想"><h2>核心思想</h2><div class="lesson-summary-grid"><article class="lesson-summary-card"><h3>找最值候选</h3><p>比较区间端点和落在区间内的顶点。</p></article><article class="lesson-summary-card"><h3>动轴定区间</h3><p>以对称轴越过两个端点的时刻为分界。</p></article><article class="lesson-summary-card"><h3>定轴动区间</h3><p>跟踪移动区间与对称轴的相对位置。</p></article></div></section><h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-indigo-600 rounded"></span>本节内容 · 7 个页面</h2>
+  <div class="grid md:grid-cols-2 gap-4"><a class="course-index-card" href="00-闭区间最值.html"><p class="font-bold text-lg">闭区间最值</p><span class="lesson-card-note">求闭区间上的二次函数最值，先把端点和落在区间内的顶点列为候选。</span></a>
+<a class="course-index-card" href="01-代数条件化为区间.html"><p class="font-bold text-lg">引例1 · 线性约束下求最小值</p><span class="lesson-card-note">由 $x+y=1$ 得 $y^{2}+4x+1=(x+1)^{2}+1$，最小值为 $1$。</span></a>
+<a class="course-index-card" href="01a-引例2-圆约束下求最大值.html"><p class="font-bold text-lg">引例2 · 圆约束下求最大值</p><span class="lesson-card-note">消去平方项，确定横坐标的取值范围。</span></a>
+<a class="course-index-card" href="02-动轴定区间.html"><p class="font-bold text-lg">动轴定区间</p><span class="lesson-card-note">固定区间 $[0,1]$，对称轴 $x=a$ 随参数移动。</span></a>
+<a class="course-index-card" href="02a-引例3-动轴定区间.html"><p class="font-bold text-lg">引例3 · 动轴定区间</p><span class="lesson-card-note">根据区间最大值反求抛物线的对称轴。</span></a>
+<a class="course-index-card" href="03-定轴动区间.html"><p class="font-bold text-lg">定轴动区间</p><span class="lesson-card-note">对称轴固定在 $x=1$，区间 $[m-2,m]$ 随 $m$ 平移。</span></a>
+<a class="course-index-card" href="03a-引例4-定轴动区间.html"><p class="font-bold text-lg">引例4 · 定轴动区间</p><span class="lesson-card-note">根据区间最小值反求移动区间的端点。</span></a></div>
+ </section>
+
+ <footer class="mt-8 text-center text-xs text-slate-400">
+  区间最值 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第 5 章第 2 节 · 书页 160–162 讲解部分
+ </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+ var b=document.getElementById('backHome'); if(!b) return;
+ var h=b.parentNode;
+ function pin(){
+  var r=h.getBoundingClientRect();
+  if(r.top>=14){
+   b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+   b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+   b.style.color='#e2e8f0'; b.style.boxShadow='none';
+  }else{
+   var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+   b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+   b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+   b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+  }
+ }
+ window.addEventListener('scroll',pin,{passive:true});
+ window.addEventListener('resize',pin);
+ pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="05" data-section="05-02"></script><script src="../assets/katex/katex.min.js"></script><script src="../assets/katex/contrib/auto-render.min.js"></script><script>document.querySelectorAll(".lesson-card-note").forEach(node=>renderMathInElement(node,{delimiters:[{left:"$",right:"$",display:false}],throwOnError:false}));</script></body>
+</html>

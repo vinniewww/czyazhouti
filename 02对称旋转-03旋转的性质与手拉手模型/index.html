@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旋转的性质与手拉手模型 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 2 章 对称旋转 · 第 3 节</p><h1>旋转的性质与手拉手模型 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">转过去的三角形，边长和角度都不变。</p><p>「旋转是三大变换中最难的一个」<span class="text-slate-400 text-sm ml-2">——《初中压轴题是怎样练成的》</span></p><p>一方面图形构造较为复杂，另一方面旋转本身的"故事"也很多。<br>
+    本节从<strong class="text-white">旋转的性质</strong>出发，介绍旋转的经典模型之一：<strong class="text-white">手拉手模型</strong>。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-02%E7%9F%A9%E5%BD%A2%E7%9A%84%E6%8A%98%E5%8F%A0/index.html">← 上一节 · 矩形的折叠</a><a class="hero-link" id="next-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-04%E4%B8%89%E5%9E%82%E7%9B%B4%E6%A8%A1%E5%9E%8B/index.html">下一节 · 三垂直模型 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：旋转是"全等变换"</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 对应边、对应角相等</p><p>旋转前后两图形全等：AB=AD、AC=AE、BC=DE，∠B=∠D……把分散的线段和角"搬"到一起。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 旋转角处处相等</p><p>对应点与旋转中心的夹角都等于旋转角；连对应边的夹角也等于旋转角——这就是「8 字」模型 ∠BAD=∠CAE=∠BFD。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 手拉手模型</p><p>共顶点、四线两两相等且夹角相等 ⇒ 一组旋转型全等（SAS）；再推广得到相似，甚至主动"构造旋转"。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课程路径（8 个互动页面）</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-模型认识-旋转的性质.html">
+        <p class="text-xs text-slate-400 mb-1">本节导读</p>
+        <p class="font-bold text-lg">模型认识 · 旋转的性质</p>
+        <p class="text-sm text-slate-500 mt-1">拖动滑块让 △ABC 绕 A 旋转 —— 对应边相等、对应角相等、旋转角相等一目了然。</p>
+      </a>
+
+      <a class="course-index-card" href="01-引例1-对应边相等.html">
+        <p class="text-xs text-slate-400 mb-1">性质① · 对应边相等</p>
+        <p class="font-bold text-lg">引例 1（2019·内江）· D 落在 BC 上</p>
+        <p class="text-sm text-slate-500 mt-1">AB=2、BC=3.6、∠B=60° —— △ABD 是等边三角形，CD=1.6，选 A。</p>
+      </a>
+
+      <a class="course-index-card" href="02-引例2-对应角相等.html">
+        <p class="text-xs text-slate-400 mb-1">性质② · 对应角相等</p>
+        <p class="font-bold text-lg">引例 2（2019·包头）· 求 tan∠DEC</p>
+        <p class="text-sm text-slate-500 mt-1">绕 A 逆时针旋转 70° —— △ACE 等腰，∠DEC=45°，tan∠DEC=1。</p>
+      </a>
+
+      <a class="course-index-card" href="03-引例3-旋转角相等.html">
+        <p class="text-xs text-slate-400 mb-1">性质③ · 旋转角相等</p>
+        <p class="font-bold text-lg">引例 3（2019·菏泽）· 共顶点等腰直角三角形</p>
+        <p class="text-sm text-slate-500 mt-1">无论怎么转都恒有 BP⊥CD；D 落在 AB 上时 S△PDE = 27/10。</p>
+      </a>
+
+      <a class="course-index-card" href="04-引例4-手拉手模型.html">
+        <p class="text-xs text-slate-400 mb-1">模型④ · 手拉手模型</p>
+        <p class="font-bold text-lg">引例 4（2017·南充）· 正方形绕 C 旋转</p>
+        <p class="text-sm text-slate-500 mt-1">BE=DG、BE⊥DG、DE²+BG²=2a²+2b² —— ①②③ 全都正确。</p>
+      </a>
+
+      <a class="course-index-card" href="05-引例5-模型拓展相似.html">
+        <p class="text-xs text-slate-400 mb-1">拓展⑤ · 手拉手中的相似</p>
+        <p class="font-bold text-lg">引例 5（2017·苏州）· 矩形旋转</p>
+        <p class="text-sm text-slate-500 mt-1">△ABB′∽△ACC′，设 AB=x 解得 x=5，CC′/BB′=AC/AB=√74/5。</p>
+      </a>
+
+      <a class="course-index-card" href="06-引例6-模型构造.html">
+        <p class="text-xs text-slate-400 mb-1">构造⑥ · 主动构造旋转</p>
+        <p class="font-bold text-lg">引例 6（2020·烟台）· 等边三角形与动点</p>
+        <p class="text-sm text-slate-500 mt-1">过 E 作 EG∥AB 构造旋转型全等：D 在 BC 上时 CE+CF=CD；D 在延长线上时 CD=CF−CE。</p>
+      </a>
+
+      <a class="course-index-card" href="07-模型总结.html">
+        <p class="text-xs text-slate-400 mb-1">本节总结</p>
+        <p class="font-bold text-lg">旋转的性质与手拉手模型 · 全章小结</p>
+        <p class="text-sm text-slate-500 mt-1">三条性质（全等变换）+ 一个手拉手模型，并推广到相似与主动构造旋转。</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-sm leading-relaxed">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先拖后讲</strong>：先让学生拖动左栏滑块观察几何量变化（对应边、旋转角、定值指示会实时更新），再对照中间栏的分步解析。</li>
+      <li><strong>定值会"亮"</strong>：出现 <span class="text-teal-600 font-medium">≡</span> 标记的地方表示该量恒为定值，正是模型的要害。</li>
+      <li><strong>轨迹与辅助线</strong>：动点轨迹、辅助线与交点默认都会绘出，帮助学生看清"点动成圆""旋转出全等"。</li>
+      <li><strong>重置按钮</strong>：把滑块归位到题目的关键状态（如旋转角 70°、D 落在 AB 上），便于重复演示。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    旋转的性质与手拉手模型 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第2章第3节（讲解部分，不含真题演练）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="02" data-section="02-03"></script></body>
+</html>

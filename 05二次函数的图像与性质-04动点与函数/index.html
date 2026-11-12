@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动点与函数 · 互动课件</title>
+<script src="../05二次函数的图像与性质-01二次函数的图像分析/assets/tailwind.js"></script>
+<style>
+ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+ .poem { font-family: "KaiTi", "STKaiti", serif; }
+ .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+ .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/lesson-index.css"><link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+ <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 5 章 二次函数的图像与性质 · 第 4 节</p><h1>动点与函数 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">动点转弯的时刻，往往就是函数分段的地方。</p><p>教材讲解、原始配图与动态画板。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../05%E4%BA%8C%E6%AC%A1%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F%E4%B8%8E%E6%80%A7%E8%B4%A8-03%E6%8A%9B%E7%89%A9%E7%BA%BF%E7%9A%84%E5%87%A0%E4%BD%95%E6%80%A7%E8%B4%A8/index.html">← 上一节 · 抛物线的几何性质</a><a class="hero-link" id="next-section" href="../06%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9D%A2%E7%A7%AF-01%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97/index.html">下一节 · 坐标系中的面积计算 →</a></nav></header>
+
+ 
+
+ <section class="mt-8">
+  <section class="lesson-summary" aria-label="核心思想"><h2>核心思想</h2><div class="lesson-summary-grid"><article class="lesson-summary-card"><h3>统一时间参数</h3><p>由速度、路径和出发点写出动点的位置。</p></article><article class="lesson-summary-card"><h3>按关键位置分段</h3><p>经过顶点或改变运动方向时重写表达式。</p></article><article class="lesson-summary-card"><h3>检验候选时间</h3><p>把解代回对应时间段和几何条件。</p></article></div></section><h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-indigo-600 rounded"></span>本节内容 · 4 个页面</h2>
+  <div class="grid md:grid-cols-2 gap-4"><a class="course-index-card" href="00-建立动点函数.html"><p class="font-bold text-lg">建立动点函数</p><span class="lesson-card-note">把运动过程和函数图像对应起来。</span></a>
+<a class="course-index-card" href="01-梯形中的动点.html"><p class="font-bold text-lg">引例1 · 梯形中的动点</p><span class="lesson-card-note">由折线的转折点计算中点处的面积。</span></a>
+<a class="course-index-card" href="02-等腰直角三角形中的动点.html"><p class="font-bold text-lg">引例2 · 等腰直角三角形的重叠面积</p><span class="lesson-card-note">按交叠形状建立分段面积函数。</span></a>
+<a class="course-index-card" href="03-矩形边界上的分段运动.html"><p class="font-bold text-lg">引例3 · 矩形中的正方形与等腰三角形</p><span class="lesson-card-note">从图像读边长，再求面积最小值和等腰时刻。</span></a></div>
+ </section>
+
+ <footer class="mt-8 text-center text-xs text-slate-400">
+  动点与函数 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第 5 章第 4 节 · 书页 172–174 讲解部分
+ </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+ var b=document.getElementById('backHome'); if(!b) return;
+ var h=b.parentNode;
+ function pin(){
+  var r=h.getBoundingClientRect();
+  if(r.top>=14){
+   b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+   b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+   b.style.color='#e2e8f0'; b.style.boxShadow='none';
+  }else{
+   var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+   b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+   b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+   b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+  }
+ }
+ window.addEventListener('scroll',pin,{passive:true});
+ window.addEventListener('resize',pin);
+ pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="05" data-section="05-04"></script></body>
+</html>

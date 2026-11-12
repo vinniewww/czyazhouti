@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>构造辅助圆-瓜豆原理·互动课件</title>
+<script src="./assets/katex/katex.min.js"></script>
+<link rel="stylesheet" href="./assets/katex/katex.min.css">
+<script src="./assets/katex/contrib/auto-render.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+  try {
+    renderMathInElement(document.body, {delimiters:[
+      {left:'$$', right:'$$', display:true},
+      {left:'$', right:'$', display:false}]});
+  } catch(e) {}
+});
+</script>
+<style>
+  body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#f1f5f9;margin:0;color:#0f172a}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px}
+  .hero{background:linear-gradient(135deg,#1e3a8a,#4f46e5);color:#fff;border-radius:16px;padding:28px 32px;margin-bottom:20px}
+  .hero h1{margin:0 0 6px;font-size:26px}
+  .hero .sub{color:#c7d2fe;font-size:14px}
+  .hero .quote{margin-top:12px;font-size:15px;color:#e0e7ff;line-height:1.7}
+  .hero .idea{margin-top:6px;font-size:13px;color:#a5b4fc;line-height:1.6}
+  .sec{font-size:17px;font-weight:700;margin:22px 0 10px;color:#1e3a8a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card a{text-decoration:none;color:#0f172a}
+  .card .t{font-weight:700;font-size:15px;color:#4f46e5;margin-bottom:4px}
+  .card .k{font-size:12px;color:#0891b2;margin-bottom:6px}
+  .card .d{font-size:12.5px;color:#475569;line-height:1.55}
+  .use{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;margin-top:20px;font-size:13.5px;color:#334155;line-height:1.8}
+  .use b{color:#1e3a8a}
+  .foot{margin-top:18px;text-align:center;font-size:12px;color:#94a3b8}
+</style>
+<style id="katex-fallback">.katex-mathml{position:absolute!important;clip:rect(1px,1px,1px,1px)!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;border:0!important}</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="section-index-page">
+
+<div class="wrap section-index-wrap">
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 1 章 几何最值 · 第 6 节</p><h1>瓜豆原理问题 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">种瓜得瓜，种豆得豆。旋转与缩放会把整条轨迹一起带走。</p><p>主、从动点对定点满足「夹角定值、比例定值」，则从动点轨迹与主动点轨迹相似：种圆得圆、种线得线、任意图形得相似图形。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-05%E6%9E%84%E9%80%A0%E8%BE%85%E5%8A%A9%E5%9C%86/index.html">← 上一节 · 构造辅助圆</a><a class="hero-link" id="next-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-01%E5%AF%B9%E7%A7%B0%E7%9A%84%E6%80%A7%E8%B4%A8/index.html">下一节 · 对称的性质 →</a></nav></header>
+
+  <div class="sec">核心思想</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div class="card"><div class="t">①找</div><div class="d">找定点与两个定量：主动点 P、定点 A、从动点 Q；∠PAQ 定值、AP:AQ 定值。</div></div>
+    <div class="card"><div class="t">②定</div><div class="d">定相似变换：把 P 的轨迹绕 A 旋转 ∠PAQ 并缩放 AQ/AP，即得 Q 的轨迹（圆心/端点也同变换）。</div></div>
+    <div class="card"><div class="t">③求</div><div class="d">轨迹长之比=相似比；面积之比=相似比²；再结合定长/定角求最值或路径长。</div></div>
+  </div>
+
+  <div class="sec">课程路径（9个互动页面）</div>
+  <div class="grid">
+    <div class="card"><a class="course-index-card" href="00-模型认识.html">
+      <div class="t">模型认识·瓜豆原理</div><div class="k">轨迹圆的三个探究</div><div class="d">前言“种瓜得瓜”+轨迹圆：探究1 AP中点(放缩1/2)、探究2 旋转90°(全等)、探究3 旋转+放缩(2:1)。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="01-模型总结-轨迹圆.html">
+      <div class="t">模型总结·轨迹圆</div><div class="k">必要条件+模型结论</div><div class="d">两定量(夹角定值、比例定值)；结论：∠PAQ=∠OAM、AP/AQ=AO/AM=r_O/r_M；拖滑块验证全等。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="02-引例1-等边三角形轨迹.html">
+      <div class="t">引例1·等边三角形轨迹</div><div class="k">旋转60°：AM=AO</div><div class="d">以AP为边作等边△APQ：Q轨迹圆圆心M满足AM=AO且∠OAM=60°，半径与⊙O相同。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="03-引例2-等腰直角三角形轨迹.html">
+      <div class="t">引例2·等腰直角轨迹</div><div class="k">旋转45°+放缩</div><div class="d">以AP为斜边作等腰直角△APQ：AP/AQ=√2、∠PAQ=45°，圆心M：AO/AM=√2、∠MAO=45°。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="04-轨迹直线-探究4与探究5.html">
+      <div class="t">轨迹直线·探究4与探究5</div><div class="k">种线得线</div><div class="d">P在线段上：Q(AP中点)轨迹为线段EF(QN=AM/2)；等腰直角旋转90°亦然；模型结论：夹角与长度比。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="05-引例3-等边三角形路径长.html">
+      <div class="t">引例3·等边三角形路径长</div><div class="k">路径长=8</div><div class="d">等边△DPF中F是P绕D旋转60°所得：F路径长=P路径长=EA=8；拖滑块验证。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="06-其它图形-引例4.html">
+      <div class="t">其它图形·引例4</div><div class="k">双曲线 k=8</div><div class="d">任意图形轨迹仍相似：A在y=−2/x上，C满足AC=BC、tan∠CAB=2，△AMO∽△ONC→k=8。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="07-引例5-等腰直角三角形面积.html">
+      <div class="t">引例5·等腰直角面积</div><div class="k">轨迹面积=3</div><div class="d">OP为斜边的等腰直角△OPQ：OP/OQ=√2，Q轨迹与△ABC相似、面积比2:1，S_Q=3。</div>
+    </a></div>
+    <div class="card"><a class="course-index-card" href="08-模型总结.html">
+      <div class="t">模型总结·两步法</div><div class="k">谱系+失误提醒</div><div class="d">找定点与两定量→定相似变换；圆/线/任意图形谱系；常见失误(忘两定量、方向、面积比混淆)。</div>
+    </a></div>
+  </div>
+
+  <div class="use">
+    <b>课堂使用建议</b><br>
+    · 先拖后讲：每页先让学生拖滑块看数值变化（AQ/AP 比值、|QM|、路径长、x_C·y_C），再展开解析步骤。<br>
+    · 强调“两定量”：本讲灵魂是「夹角定值+比例定值」决定轨迹相似，遇到“动点套动点”先找定点和两定量。<br>
+    · 对比讲解：探究1(中点·放缩)与探究2(旋转90°·全等)对照看“旋转与放缩两个动作”；探究4/5 对照“种线得线”。<br>
+    · 引例4 重点演示“任意图形也相似”：把瓜豆从圆、线推广到双曲线，体会相似比→面积比。<br>
+    · 页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。
+  </div>
+  <div class="foot">第1章 几何最值 · 第6节 瓜豆原理 | 数据驱动交互课件（edu-analytic-geometry）</div>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="01" data-section="01-06"></script></body>
+</html>

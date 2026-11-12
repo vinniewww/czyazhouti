@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>托勒密定理的应用 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+ .poem { font-family: "KaiTi", "STKaiti", serif; }
+ .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+ .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+ <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 2 章 对称旋转 · 第 9 节</p><h1>托勒密定理的应用 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">圆内接四边形，两组对边乘积之和等于两条对角线的乘积。</p><p>「对角线的乘积，等于两组对边乘积之和」<span class="text-slate-400 text-sm ml-2">——《初中压轴题是怎样练成的》</span></p><p>前面几节的四边形都带着「邻边相等 + 对角互补」，一条边转过去就出全等。
+  本节把条件削弱到<b class="text-white">只剩对角互补</b>（四点共圆）：旋转全等没有了，但两条对角线与四条边仍被
+  <b class="text-white">AC·BD = AB·CD + AD·BC</b> 钉死。等边、等腰直角、一般三角形三种形态，
+  加上 2019 威海那道引例，全部是这一条式子的变装。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-08%E4%BB%8E%E5%85%A8%E7%AD%89%E5%88%B0%E7%9B%B8%E4%BC%BC/index.html">← 上一节 · 从全等到相似</a><a class="hero-link" id="next-section" href="../03%E5%9C%86-01%E5%88%87%E7%BA%BF%E7%9A%84%E5%88%A4%E5%AE%9A/index.html">下一节 · 切线的判定 →</a></nav></header>
+
+ <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+  <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：一条式子，三种系数</h2>
+  <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 通分 + 截长</p><p>对角线 AC 做公共分母，另一条对角线 BD 被截成 BE+DE 两段，分别对应两组对边乘积。</p></div>
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 系数 = 底边比腰</p><p>等边出系数 1（DB=DA+DC），等腰直角出 √2（√2AD=BD+CD），一般三角形出 a:b:c。</p></div>
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 不共圆就取不等号</p><p>任意凸四边形有 AC·BD ≤ AB·CD+AD·BC，等号当且仅当四点共圆 —— 定理是这个不等式的极值点。</p></div>
+  </div>
+ </section>
+
+ <section class="mt-8">
+  <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-indigo-600 rounded"></span>本节内容 · 8 个页面</h2>
+  <div class="grid md:grid-cols-2 gap-4">
+
+   <a class="course-index-card" href="00-模型认识-托勒密定理.html">
+    <p class="text-xs text-slate-400 mb-1">知识导航</p>
+    <p class="font-bold text-lg">模型认识 · 邻边相等退化成四点共圆</p>
+    <p class="text-sm text-slate-500 mt-1">拖 D 沿圆滑动：AC·BD 与 AB·CD+AD·BC 永远相等（差值 0.000）。</p>
+   </a>
+   <a class="course-index-card" href="01-托勒密定理的证明.html">
+    <p class="text-xs text-slate-400 mb-1">定理证明</p>
+    <p class="font-bold text-lg">截长 + 两次相似，一行不多</p>
+    <p class="text-sm text-slate-500 mt-1">在 BD 上取 E 使 ∠BAE=∠CAD，两个乘积同时成立，拖动 E 看两个偏差一起归零。</p>
+   </a>
+   <a class="course-index-card" href="02-托勒密不等式.html">
+    <p class="text-xs text-slate-400 mb-1">推广</p>
+    <p class="font-bold text-lg">托勒密不等式：BE+DE ≥ BD</p>
+    <p class="text-sm text-slate-500 mt-1">截长法搬到圆外，三角形两边之和接管证明；D 一离开圆，比值就从 1 掉下去。</p>
+   </a>
+   <a class="course-index-card" href="03-应用一-等边三角形.html">
+    <p class="text-xs text-slate-400 mb-1">应用一</p>
+    <p class="font-bold text-lg">等边三角形：DB = DA + DC</p>
+    <p class="text-sm text-slate-500 mt-1">三条边相等，乘积直接降级成和；换个弧，结论换成 DA = DB + DC。</p>
+   </a>
+   <a class="course-index-card" href="04-应用二-等腰直角三角形.html">
+    <p class="text-xs text-slate-400 mb-1">应用二</p>
+    <p class="font-bold text-lg">等腰直角三角形：√2·AD = BD + CD</p>
+    <p class="text-sm text-slate-500 mt-1">系数 √2 就是「底边比腰」；D 换到弧 AC 时变成 BD = √2·AD + CD。</p>
+   </a>
+   <a class="course-index-card" href="05-应用三-一般三角形.html">
+    <p class="text-xs text-slate-400 mb-1">应用三 · 模型总结</p>
+    <p class="font-bold text-lg">a·AD = b·BD + c·CD</p>
+    <p class="text-sm text-slate-500 mt-1">三条边写成 a:b:c，定理变成通用公式；5-6-7 三角形上拖 D 验证。</p>
+   </a>
+   <a class="course-index-card" href="06-引例-威海-截长补短.html">
+    <p class="text-xs text-slate-400 mb-1">引例（1）· 2019 威海</p>
+    <p class="font-bold text-lg">截长法与补短法，两条路证 BD = AD + CD</p>
+    <p class="text-sm text-slate-500 mt-1">BD 上截 DM=DA 造等边三角形，再证 △AMB ≌ △ADC；M 点随 D 滑动实时可见。</p>
+   </a>
+   <a class="course-index-card" href="07-引例-威海-类比探究.html">
+    <p class="text-xs text-slate-400 mb-1">引例（2）· 类比探究</p>
+    <p class="font-bold text-lg">直径 + 30°，系数换成 2 与 √3</p>
+    <p class="text-sm text-slate-500 mt-1">BD = CD + √2·AD、BD = √3·CD + 2AD、b·BD = a·AD + c·CD，三个结论一条思路。</p>
+   </a>
+
+  </div>
+ </section>
+
+ <footer class="mt-8 text-center text-xs text-slate-400">
+  托勒密定理的应用 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第2章第9节（讲解部分，不含真题演练）
+ </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+ var b=document.getElementById('backHome'); if(!b) return;
+ var h=b.parentNode;
+ function pin(){
+  var r=h.getBoundingClientRect();
+  if(r.top>=14){
+   b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+   b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+   b.style.color='#e2e8f0'; b.style.boxShadow='none';
+  }else{
+   var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+   b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+   b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+   b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+  }
+ }
+ window.addEventListener('scroll',pin,{passive:true});
+ window.addEventListener('resize',pin);
+ pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="02" data-section="02-09"></script></body>
+</html>

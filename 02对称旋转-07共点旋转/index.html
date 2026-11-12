@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>共点旋转 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+ .poem { font-family: "KaiTi", "STKaiti", serif; }
+ .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+ .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+ <!-- 封面头 -->
+ <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 2 章 对称旋转 · 第 7 节</p><h1>共点旋转 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight">旋转角是 60° 时，优先找等边三角形。</p><p>「转的不是图形，是把三条分散的线段搬进同一个三角形」<span class="text-slate-400 text-sm ml-2">——《初中压轴题是怎样练成的》</span></p><p>前面几节转的都是<b class="text-white">整个小图形</b>；这一节转的是<b class="text-white">一条线段</b> ——
+  绕着三角形自己的顶点，转 60° 或 90°。转完之后，一定多出一个<b class="text-white">等边三角形</b>或<b class="text-white">等腰直角三角形</b>，
+  而三条原本分散的 PA、PB、PC 也就被搬进了同一个三角形。于是「平方和」变成了「直角」，「直角」又变回了「平方和」。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="previous-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-06%E6%89%8B%E8%BF%9E%E5%BF%83%E4%B8%8E%E9%82%BB%E8%A1%A5%E5%9B%9B%E8%BE%B9%E5%BD%A2/index.html">← 上一节 · 手连心模型与邻补四边形</a><a class="hero-link" id="next-section" href="../02%E5%AF%B9%E7%A7%B0%E6%97%8B%E8%BD%AC-08%E4%BB%8E%E5%85%A8%E7%AD%89%E5%88%B0%E7%9B%B8%E4%BC%BC/index.html">下一节 · 从全等到相似 →</a></nav></header>
+
+ <!-- 核心思想 -->
+ <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+  <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：旋转角决定辅助图形</h2>
+  <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 转 60° 出等边三角形</p><p>等边三角形有两条相等邻边，绕顶点转 60°，一条线段就变成等边三角形的一条边。内部得 150°=60°+90°，外部得 30°=90°-60°。</p></div>
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 转 90° 出等腰直角三角形</p><p>正方形（或等腰直角）绕直角顶点转 90°，出等腰直角三角形，底角 45°。内部得 135°=90°+45°，外部得 45°=90°-45°。</p></div>
+   <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 平方和 ⇄ 直角</p><p>PA²+PB²=PC² 就是勾股定理，就是直角。看到平方和，就该想到「构造一个直角」；构造直角的工具，正是共点旋转。</p></div>
+  </div>
+ </section>
+
+ <!-- 课程列表 -->
+ <section class="mt-8">
+  <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-indigo-600 rounded"></span>本节内容 · 8 个页面</h2>
+  <div class="grid md:grid-cols-2 gap-4">
+
+   <a class="course-index-card" href="00-模型认识-共点旋转.html">
+    <p class="text-xs text-slate-400 mb-1">知识导航</p>
+    <p class="font-bold text-lg">模型认识 · 转 60° 得等边</p>
+    <p class="text-sm text-slate-500 mt-1">引例 1（2016·达州）：6,8,10 三条距离。连 PQ 出等边、勾股出直角，四边形面积 24+9√3。</p>
+   </a>
+
+   <a class="course-index-card" href="01-结论-150度.html">
+    <p class="text-xs text-slate-400 mb-1">模型总结</p>
+    <p class="font-bold text-lg">150° 与 PA²+PB²=PC²</p>
+    <p class="text-sm text-slate-500 mt-1">正向、反向都是同一张图。拖 P 看差值归零那一刻，∠APB 正好停在 150°。</p>
+   </a>
+
+   <a class="course-index-card" href="02-引例2-淄博.html">
+    <p class="text-xs text-slate-400 mb-1">引例 2 · 钝角处理</p>
+    <p class="font-bold text-lg">引例 2（2018·淄博）· 3,4,5 求面积</p>
+    <p class="text-sm text-slate-500 mt-1">作 BH⊥ AP：150° 的补角是 30°，补出直角三角形，AB²=25+12√3。</p>
+   </a>
+
+   <a class="course-index-card" href="03-模型探究-外部30度.html">
+    <p class="text-xs text-slate-400 mb-1">模型探究</p>
+    <p class="font-bold text-lg">P 在三角形外 · 30°</p>
+    <p class="text-sm text-slate-500 mt-1">作等边 △PBQ，△PBA≌△QBC。位置变了，方法没变。</p>
+   </a>
+
+   <a class="course-index-card" href="04-正方形共点旋转.html">
+    <p class="text-xs text-slate-400 mb-1">类比探究 · 正方形</p>
+    <p class="font-bold text-lg">正方形与 90° 共点旋转</p>
+    <p class="text-sm text-slate-500 mt-1">△APD 转 90° 得 △AEB，△AEP 等腰直角。135° 与 2PA²+PD²=PB² 互为条件。</p>
+   </a>
+
+   <a class="course-index-card" href="05-猜想探究-正方形外45度.html">
+    <p class="text-xs text-slate-400 mb-1">猜想探究</p>
+    <p class="font-bold text-lg">P 在正方形外 · 45°</p>
+    <p class="text-sm text-slate-500 mt-1">同样构造，角从相加变成相减：135° 在外面就成了 45°。</p>
+   </a>
+
+   <a class="course-index-card" href="06-引例3-绵阳.html">
+    <p class="text-xs text-slate-400 mb-1">引例 3 · 选择</p>
+    <p class="font-bold text-lg">引例 3（2012·绵阳）· 1:2</p>
+    <p class="text-sm text-slate-500 mt-1">旋转中心是 B 不是 A。绕 B 转 90° 得等腰直角 △P'BQ，P'Q=√2PB，一路算到 1:2。</p>
+   </a>
+
+   <a class="course-index-card" href="07-模型总结与拓展.html">
+    <p class="text-xs text-slate-400 mb-1">本节总结</p>
+    <p class="font-bold text-lg">模型总结 · 两套结论对照</p>
+    <p class="text-sm text-slate-500 mt-1">三步走、两套结论、以及和半角模型 / 手连心 / 三垂直的分工。</p>
+   </a>
+  </div>
+ </section>
+
+ <!-- 使用建议 -->
+ <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+  <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-amber-500 rounded"></span>课堂使用建议</h2>
+  <ul class="list-disc pl-5 space-y-2 text-slate-600">
+   <li><strong>先让学生找「共点」</strong>：第 0 页先不给结论，让学生指出「哪个顶点有两条相等的邻边」。</li>
+   <li><strong>拖到差值为零</strong>：第 1 页把滑块慢慢推，PA²+PB²-PC² 从负变正穿过 0 的那一刻，∠APB 正好 150°。</li>
+   <li><strong>把 P 拖到外面</strong>：第 3、5 页专门做「外部版」，让学生比较 150°→30°、135°→45°。</li>
+   <li><strong>制造冲突</strong>：第 6 页先问「绕哪个点转」，多数学生会说 A，再揭示是 B。</li>
+   <li>页面资源全部本地化，断网也能正常渲染公式与画板。</li>
+  </ul>
+ </section>
+
+ <footer class="mt-8 text-center text-xs text-slate-400">
+  共点旋转 · 互动课件 —— 内容整理自《初中压轴题是怎样练成的》第2章第7节（讲解部分，不含真题演练）
+ </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+ var b=document.getElementById('backHome'); if(!b) return;
+ var h=b.parentNode;
+ function pin(){
+  var r=h.getBoundingClientRect();
+  if(r.top>=14){
+   b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+   b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+   b.style.color='#e2e8f0'; b.style.boxShadow='none';
+  }else{
+   var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+   b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+   b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+   b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+  }
+ }
+ window.addEventListener('scroll',pin,{passive:true});
+ window.addEventListener('resize',pin);
+ pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="02" data-section="02-07"></script></body>
+</html>

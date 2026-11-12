@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>将军饮马 · 互动课件</title>
+<script src="./assets/tailwind.js"></script>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+  .poem { font-family: "KaiTi", "STKaiti", serif; }
+  .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,23,42,.10); }
+</style>
+<link rel="stylesheet" href="../assets/chapter-menu.css"><link rel="stylesheet" href="../assets/section-index-hero.css"><link rel="stylesheet" href="../assets/course-ui.css"></head>
+<body class="bg-slate-100 text-slate-800 min-h-screen section-index-page">
+
+<div class="max-w-5xl mx-auto px-4 py-10 section-index-wrap">
+
+  <!-- 封面头 -->
+  <header class="section-index-hero"><a class="hero-link hero-home" href="../index.html">← 返回总目录</a><p class="hero-meta">初中数学 · 第 1 章 几何最值 · 第 1 节</p><h1>将军饮马 · 互动课件</h1><div class="hero-intro"><p class="hero-highlight hero-poem">「白日登山望烽火，黄昏饮马傍交河」<span class="hero-attribution">—— 唐 · 李颀《古从军行》</span></p><p>将军从营地出发，到河边饮马，再回到军营——怎样走路程最短？<br>
+    这首唐诗背后，是一类经典的<strong class="text-white">轴对称最短路径问题</strong>，也是中考压轴题的常客。</p></div><nav class="hero-nav" aria-label="相邻小节"><a class="hero-link" id="next-section" href="../01%E5%87%A0%E4%BD%95%E6%9C%80%E5%80%BC-02%E8%83%A1%E4%B8%8D%E5%BD%92%E9%97%AE%E9%A2%98/index.html">下一节 · 胡不归问题 →</a></nav></header>
+
+  <!-- 核心思想 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>核心思想：化折为直</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm leading-relaxed">
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">① 作对称点</p><p>作端点关于折点所在直线的对称点，把折线段的每一段"翻"到直线同侧。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">② 两点之间线段最短</p><p>折线化直后，当各点共线时取得最小值；若是 PA−PB 型，则用三角形两边之差求最大。</p></div>
+      <div class="bg-slate-50 rounded-xl p-4"><p class="font-bold text-teal-700 mb-1">③ 平移型先平移</p><p>两段折线被定长（桥长、遛马路程）分离时，先平移拼接，再按基本模型对称。</p></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课程路径（10 个互动页面）</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <a class="course-index-card" href="00-基本模型.html">
+        <p class="text-xs text-slate-400 mb-1">模型认识</p>
+        <p class="font-bold text-lg">基本模型</p>
+        <p class="text-sm text-slate-500 mt-1">直线 l 上找 P 使 PA+PB 最小 —— 对称一次，化折为直。最小值 3√5。</p>
+      </a>
+
+      <a class="course-index-card" href="01-引例1.html">
+        <p class="text-xs text-slate-400 mb-1">模型认识 · 引例 1</p>
+        <p class="font-bold text-lg">坐标系中的基本模型</p>
+        <p class="text-sm text-slate-500 mt-1">A(0,1)、B(3,2)，x 轴上取 P。直线 A′B：y=x−1，P(1,0)，最小 3√2。</p>
+      </a>
+
+      <a class="course-index-card" href="02-引例2-一定两动.html">
+        <p class="text-xs text-slate-400 mb-1">类型一 · 点点型（一定两动）</p>
+        <p class="font-bold text-lg">引例 2 · 三角形周长最小</p>
+        <p class="text-sm text-slate-500 mt-1">∠AOB=30°，OP=8 —— 对称两次，△OPP″ 为等边三角形。最小值 8。</p>
+      </a>
+
+      <a class="course-index-card" href="03-引例3-两定两动.html">
+        <p class="text-xs text-slate-400 mb-1">类型一 · 点点型（两定两动）</p>
+        <p class="font-bold text-lg">引例 3 · 四边形周长最小</p>
+        <p class="text-sm text-slate-500 mt-1">PQ 为定值先分离，两次对称。最小值 5√2+√10。</p>
+      </a>
+
+      <a class="course-index-card" href="04-引例4-点线型.html">
+        <p class="text-xs text-slate-400 mb-1">类型二 · 点·线型</p>
+        <p class="font-bold text-lg">引例 4 · 垂线段最短</p>
+        <p class="text-sm text-slate-500 mt-1">3-4-5 直角三角形，角平分线 + 对称 —— 最小值恰为斜边上的高 12/5。</p>
+      </a>
+
+      <a class="course-index-card" href="05-引例5-PA减PB型.html">
+        <p class="text-xs text-slate-400 mb-1">类型三 · PA−PB 型</p>
+        <p class="font-bold text-lg">引例 5（2019·陕西）· 差的最大值</p>
+        <p class="text-sm text-slate-500 mt-1">三角形两边之差小于第三边。PM−PN 最大值 = M′N = 2。</p>
+      </a>
+
+      <a class="course-index-card" href="06-引例7-补对称点.html">
+        <p class="text-xs text-slate-400 mb-1">类型四 · 非轴对称图形</p>
+        <p class="font-bold text-lg">引例 7 · 发现隐藏的对称点</p>
+        <p class="text-sm text-slate-500 mt-1">等边三角形中高线即垂直平分线，B 的对称点即 C。最小值 2√7。</p>
+      </a>
+
+      <a class="course-index-card" href="07-引例8-定折点直线.html">
+        <p class="text-xs text-slate-400 mb-1">类型五 · 确定折点所在直线</p>
+        <p class="font-bold text-lg">引例 8（2019·西藏）· 面积条件定轨迹</p>
+        <p class="text-sm text-slate-500 mt-1">S△PAB = ⅓S矩形 ⇒ P 在定直线 l 上，再对称。最小值 2√13，选 A。</p>
+      </a>
+
+      <a class="course-index-card" href="08-造桥选址.html">
+        <p class="text-xs text-slate-400 mb-1">平移型 · 造桥选址</p>
+        <p class="font-bold text-lg">造桥选址</p>
+        <p class="text-sm text-slate-500 mt-1">桥长恒定先平移，化归为普通将军饮马。最短路程 4√2+1。</p>
+      </a>
+
+      <a class="course-index-card" href="09-引例6-平移型.html">
+        <p class="text-xs text-slate-400 mb-1">平移型 · 将军遛马</p>
+        <p class="font-bold text-lg">引例 6 · 平移 + 对称两步走</p>
+        <p class="text-sm text-slate-500 mt-1">PQ=2 先平移 AP，再作对称点。P(8/3, 0)，周长最小 2√10+2+2√13。</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 使用说明 -->
+  <section class="mt-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-sm leading-relaxed">
+    <h2 class="text-xl font-bold mb-3 flex items-center gap-2"><span class="w-1.5 h-5 bg-teal-600 rounded"></span>课堂使用建议</h2>
+    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+      <li><strong>先拖后讲</strong>：每页先让学生拖动滑块观察目标量的变化（右侧范围条指针会实时移动），再勾选"显示辅助线"揭示作法，最后对照中间栏的分步解析。</li>
+      <li><strong>题图与解析分离</strong>：辅助线（对称点、直线段）默认隐藏，避免剧透；讲完后可展开"详细解析"逐步推导。</li>
+      <li><strong>重置按钮</strong>：把滑块归位到题目初始状态，便于重复演示。</li>
+      <li>页面需联网加载公式排版（KaTeX）与样式库；画板交互本身在本地实时计算。</li>
+    </ul>
+  </section>
+
+  <footer class="mt-8 text-center text-xs text-slate-400">
+    将军饮马 · 互动课件 —— 内容整理自《初中压轴题》将军饮马专题（5 页讲义扫描件）
+  </footer>
+</div>
+<style>#backHome:hover{filter:brightness(1.12)}</style>
+<script>
+(function(){
+  var b=document.getElementById('backHome'); if(!b) return;
+  var h=b.parentNode;
+  function pin(){
+    var r=h.getBoundingClientRect();
+    if(r.top>=14){
+      b.style.position='absolute'; b.style.top='18px'; b.style.right='20px';
+      b.style.background='rgba(255,255,255,.14)'; b.style.borderColor='rgba(255,255,255,.35)';
+      b.style.color='#e2e8f0'; b.style.boxShadow='none';
+    }else{
+      var right=Math.max(16, Math.min(window.innerWidth-90, window.innerWidth-r.right+20));
+      b.style.position='fixed'; b.style.top='14px'; b.style.right=right+'px';
+      b.style.background='rgba(255,255,255,.94)'; b.style.borderColor='#cbd5e1';
+      b.style.color='#475569'; b.style.boxShadow='0 2px 8px rgba(0,0,0,.10)';
+    }
+  }
+  window.addEventListener('scroll',pin,{passive:true});
+  window.addEventListener('resize',pin);
+  pin();
+})();
+</script>
+<script src="../assets/chapter-menu.js" data-chapter="01" data-section="01-01"></script></body>
+</html>
